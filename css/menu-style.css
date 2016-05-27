@@ -1,0 +1,253 @@
+/*--------------------
+General
+--------------------*/
+body {
+	-webkit-font-smoothing: antialiased;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+
+.content {
+    margin-top: 60px;
+}
+
+.content > * {
+    margin-top: 40px;
+}
+
+
+/*--------------------
+Header
+--------------------*/
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #f4f4f4;
+    z-index: 100000;
+}
+
+.navigation {
+    position: relative;
+    float: left;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navigation .logo {
+    float: left;
+    width: 100px;
+}
+
+.navigation .logo a {
+    display: block;
+    font-size: 30px;
+    line-height: 40px;
+    padding: 10px 20px 10px 0;
+    text-transform: uppercase;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu > li {
+    float: left;
+    border-right: 1px solid #e3e3e3;
+}
+
+.menu > li:first-child { 
+    border-left: 1px solid #e3e3e3; 
+}
+
+.menu a {
+    display: block;
+    padding: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #8f8f8f;
+    white-space: nowrap;
+    text-transform: uppercase;
+
+    -webkit-transition: all .1s ease; 
+    -moz-transition: all .1s ease; 
+    transition: all .1s ease;
+}
+
+.menu a:hover,
+.menu-expand:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #8f8f8f;
+}
+
+@media (min-width: 992px) {
+    li:hover > .sub-menu {
+        display: block;
+
+        -moz-animation: bounceIn 0.3s;
+        -webkit-animation: bounceIn 0.3s;
+        animation: bounceIn 0.3s;
+    }
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #f4f4f4;
+}
+
+.sub-menu .sub-menu {
+    top: 0;
+    left: 100%;
+}
+
+.sub-menu a {
+    padding: 10px 20px;
+}
+
+
+@media (max-width: 991px) {
+    .menu.open {
+        display: block;
+        -moz-animation: bounceIn 0.4s;
+        -webkit-animation: bounceIn 0.4s;
+        animation: bounceIn 0.4s;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #f4f4f4;
+    }
+
+    .menu li {
+        float: none;
+        width: 100%;
+        border-width: 1px 0 0 0!important;
+        border-style: solid;
+        border-color: #e3e3e3;
+    }
+
+    .menu li a {
+        padding: 20px;
+    }
+
+    .sub-menu {
+    	display: none;
+        position: static;
+    }
+
+    .sub-menu li a { padding-left: 40px; }
+    .sub-menu li li a{ padding-left:  60px; }
+    .sub-menu li li li a{ padding-left:  60px; }
+
+    .menu-expand {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #f4f4f4;
+        display: block;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        cursor: pointer;
+    }
+
+    .menu-expand:after {
+        width: 100%;
+        text-align: center;
+        content: "ï§";
+        font-style: normal;
+        font-family: 'FontAwesome';
+        position: absolute;
+    }
+    .open.menu-expand:after { content: "ï¨"; }
+
+}
+
+.menu-icon {
+  position: relative;
+  display: none;
+  margin: 10px;
+  width: 25px;
+  height: 40px;
+  cursor: pointer;
+  float: right;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.menu-icon > span {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin-top: -2px;
+  background-color: #8f8f8f;
+}
+
+.menu-icon > span:before,
+.menu-icon > span:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #8f8f8f;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.menu-icon > span:before {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+}
+
+.menu-icon > span:after {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+}
+
+.menu-icon.open {
+  -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+}
+
+.menu-icon.open > span:before {
+  -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+}
+
+.menu-icon.open > span:after {
+  -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+}
+
+@media (max-width: 991px) {
+    .menu-icon {
+        display: block;
+    }
+}
+
+/*--------------------
+Footer
+--------------------*/
+.footer {
+    margin-top: 100px;
+    padding: 40px 0;
+    background: #f4f4f4;
+}
