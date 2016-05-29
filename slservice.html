@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Wei</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!--== CSS Files ==-->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="css/font-awesome.css" rel="stylesheet" media="screen">
+		<link href="css/menu-style.css" rel="stylesheet" media="screen">
+		<link href="css/wei.css" rel="stylesheet" media="screen">
+		<link href="css/slider.css" rel="stylesheet" media="screen">
+
+		<!--== Google Fonts ==-->
+		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+        
+	</head>
+	<body>
+		<!--===============================-->
+		<!--== Header =====================-->
+		<!--===============================-->
+		<header class="header">
+			<div class="container">
+				<nav class="navigation" role="navigation">
+					<div class="logo">
+						<img src="images/logo.png" class="logowei"/>
+					</div>
+                    <div class="logo">
+						<a href="index.html">Wei</a>
+					</div>
+					<div class="menu-icon">
+						<span></span>
+					</div>
+
+					<ul class="menu pull-right">
+                        <li><a href="whoweare.html">Who We Are</a></li>
+                        <li><a href="device.html?id=1">Devices</a></li>
+                        <li><a href="slservices.html?id=1">SmartLife Services</a></li>
+                        <li><a href="assistanceservices.html">Assistance Services</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+        
+        <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="false" id="bs-carousel">
+			
+            <!-- Indicators -->
+  			<ol class="carousel-indicators">
+    			<li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    			<li data-target="#bs-carousel" data-slide-to="1"></li>
+    			<li data-target="#bs-carousel" data-slide-to="2"></li>
+  			</ol>
+  
+  			<!-- Wrapper for slides -->
+  			<div class="carousel-inner">
+    			<div class="item slides active">
+      				<div class="slide" id="slide1" style="background-image: url(https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af)">
+                    	<div class="overlay"></div>
+					</div>
+				    <div class="carousel-caption">
+                		<div class="full-width text-center">
+							<h1>Wei Music</h1>        
+            				<h6 id="slservice_description" style="text-align: justify"></h6>
+                		</div>            				
+      				</div>
+				</div>
+    			<div class="item slides">
+      				<div class="slide" id="slide2" style="background-image: url(https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327)">
+                    	<div class="overlay"></div>
+					</div>
+      				<div class="carousel-caption">        
+                		<div class="full-width text-center">
+							<h1>Activation and Rules</h1>        
+            				<h6 id="slservice_activandrules" style="text-align: justify"></h6>
+                            <h6 id="slservice_promo" style="text-align: justify"></h6>
+                		    <button class="btn btn-hero btn-lg" role="button">Activate now</button>
+                        </div>   
+      				</div>
+    			</div>
+    			<div class="item slides">
+      				<div class="slide" id="slide3" style="background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818)">
+                    	<div class="overlay"></div>
+					</div>
+              		<div class="carousel-caption">
+                		<div class="full-width text-center">
+							<h1>Use this service with:</h1>        
+            				<h6 id="relatedDevices" style="text-align: justify"></h6>
+                        </div>            				
+      				</div>
+    			</div>
+  			</div>
+            
+            <!-- Controls -->
+    		<a class="left carousel-control" href="#bs-carousel" role="button" data-slide="prev">
+      			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      			<span class="sr-only">Previous</span>
+    		</a>
+    		<a class="right carousel-control" href="#bs-carousel" role="button" data-slide="next">
+      			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      			<span class="sr-only">Next</span>
+    		</a>
+		</div>
+        
+		<footer class="footer" style="margin-top:0px">
+			<div class="container">
+				<div class="row">
+					Website developed accaso by me and tizio stranger
+                </div>
+			</div>
+		</footer>
+		
+		<!--== Javascript Files ==-->
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        <!-- This commented code let the user slide the carousel with swipe, but it somehow interferes with the menu working
+        <script src="js/jquery-mobile.js"></script>
+        <script>
+			$(document).ready(function() {
+    			$.mobile.loading().hide();
+				$("#bs-carousel").swiperight(function() {
+     				$(this).carousel('prev');
+    			});
+   				$("#bs-carousel").swipeleft(function() {
+      				$(this).carousel('next');
+   				});
+			});
+		</script>-->
+        <script src="js/menu.js"></script>
+        <script src="js/pages/slservice.js"></script>
+	</body>
+</html>
