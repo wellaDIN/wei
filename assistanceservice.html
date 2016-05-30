@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Wei</title>
+		<title>Wei - Assistance Service</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -10,6 +10,8 @@
 		<link href="css/font-awesome.css" rel="stylesheet" media="screen">
 		<link href="css/menu-style.css" rel="stylesheet" media="screen">
 		<link href="css/wei.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="homeshop/css/fontello.css">        
+		<link href="css/leftpanel.css" rel="stylesheet" media="screen">
 
 		<!--== Google Fonts ==-->
 		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -45,14 +47,28 @@
 		</header>
 
 		<div class="container content">
-			<div class="row"style="margin-left:2px; margin-right:2px">
-					<h1>Lorem Ipsum</h1>
-                    <p align="justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-					<a href="device.html?id=1">iPhone 6s Plus</a><br/>
-                    <a href="slservice.html?id=1">WeiMusic</a>
+            <div class="row" style="margin-left:2px; margin-right:2px">
+          		<div class="breadcrumbs">
+              		<p><a href="index.html">Home</a> <i class="icons icon-right-dir"></i> <a href="assistanceservices.html">Assistance Services</a>  <i class="icons icon-right-dir"></i> <a href="assistanceservices.html">Assistance Service Category</a>  <i class="icons icon-right-dir"></i> Service</p>
+            	</div>
+        	</div>
+        
+       	<div class="row" style="margin-left:0px; margin-right: 0px; margin-top: 0px">
+        <div class="bhoechie-tab-container">
+            <div class="col-lg-3 col-md-3 col-sm-5 col-xs-5 bhoechie-tab-menu">
+              <div id="tab-left-list" class="list-group">
+                <a href="#" id="active-tab" class="list-group-item active text-center">
+                </a>
+              </div>
             </div>
+            <div id="tab-contents-div" class="col-lg-9 col-md-9 col-sm-7 col-xs-7 bhoechie-tab">
+                <div id="active-tab-content" class="bhoechie-tab-content active">
+                </div>
+            </div>
+        </div>
+  </div>
 		</div>
-		
+    
 		<footer class="footer">
 			<div class="container">
 				<div class="row">
@@ -66,6 +82,19 @@
 		<script src="js/jquery-2.1.0.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/menu.js"></script>
+        <script src="js/pages/assistanceservice.js"></script>
+		<script>
 
+        	$(document).ready(function() {
+    			$("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+        			e.preventDefault();
+        			$(this).siblings('a.active').removeClass("active");
+        			$(this).addClass("active");
+        			var index = $(this).index();
+        			$("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+        			$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+    			});
+			});                
+		</script>
 	</body>
 </html>

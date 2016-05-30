@@ -7,3 +7,36 @@
 .centered {
 	margin: auto;
 }
+
+/* ========================= */
+/*       BREADCRUMBS         */
+/* ========================= */
+
+
+
+.breadcrumbs{
+	background:#f7f7f7;
+	margin-bottom:20px;
+	margin-top:-10px;
+}
+
+.breadcrumbs p{
+	color:#7a8188;	
+	font-size:13px;
+	margin:0;
+	padding:8px 20px;
+}
+
+.breadcrumbs .icons{
+	color:#c1c7ca;	
+}
+
+.breadcrumbs a{
+	font-weight:300;	
+}
+
+textarea {
+    overflow-y: scroll;
+    height: 100px;
+    resize: none;
+}
