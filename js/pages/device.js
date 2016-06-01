@@ -229,3 +229,141 @@ function render_tablet_page(){
     });
     
 }
+
+function render_networking_page(){
+	var deviceID = findParameter("id");	
+	$.ajax({
+    	method: 'POST',
+        crossDomain: true,
+        url: 'php_scripts/findNetworking.php',
+        data: {id: deviceID},
+        success: function(response){
+        	if(response==("\"405\"") || response==("\"406\"")){
+				window.location.replace("404.html");
+			}
+        	var networking = JSON.parse(response);
+            var networking_name = networking.name;
+            var networking_img_number = networking.imgnumber;
+            var networking_price = networking["price"];
+			var networking_promotion = networking["promotion"];
+            var networking_discountedprice = networking["discountedprice"];
+            var networking_description = networking.description;
+            var networking_features = JSON.parse(networking.features).features;
+            $("#deviceName").text(networking_name);
+            $("#deviceImage").attr('src',"images/devices/networking/" + networking_name + "_1.png");
+            $("#deviceImage").attr('data-large',"images/devices/networking/" + networking_name + "_1.png");
+			var i;
+            for(i=1;i<=networking_img_number;i++){
+            	var li;
+            	var string = '"images/devices/networking/' + networking_name + '_' + i + '.png"'
+                li = document.getElementById("li"+i);
+            	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
+            }
+            //TODO DO SOMETHING WITH DESCRIPTION
+            delete networking.id;
+            delete networking.description;
+            delete networking.name;
+			delete networking.price;
+			delete networking.promotion;
+			delete networking.discountedprice;
+            delete networking.imgnumber;
+            delete networking.features;
+            var table = document.getElementById("deviceTable");
+			for(var i in networking){
+            	var newRow = table.insertRow(table.rows.length);
+                var cell1 = newRow.insertCell(0);
+				var cell2 = newRow.insertCell(1);
+            	cell1.innerHTML = capitalizeFirstLetter(i);
+                cell2.innerHTML = networking[i];
+            }
+            for (var i in networking_features){
+            	var newRow = table.insertRow(table.rows.length);
+                var cell1 = newRow.insertCell(0);
+				var cell2 = newRow.insertCell(1);
+            	cell1.innerHTML = networking_features[i].featureName;
+                cell2.innerHTML = networking_features[i].featureValue;               
+            }
+            var newRow = table.insertRow(table.rows.length);
+            var cell1 = newRow.insertCell(0);
+			var cell2 = newRow.insertCell(1);
+            cell1.innerHTML = "Price";
+            var price = networking_price;
+            if(networking_promotion!=0){
+            	price = price.concat(" PROMO " + networking_discountedprice);
+            }
+			cell2.innerHTML = price;
+		},
+        error: function(request, error){
+			console.log(request + " : " + error);
+		}    
+    });
+}
+    
+function render_tv_page(){
+	var deviceID = findParameter("id");	
+	$.ajax({
+    	method: 'POST',
+        crossDomain: true,
+        url: 'php_scripts/findTvAndSL.php',
+        data: {id: deviceID},
+        success: function(response){
+        	if(response==("\"405\"") || response==("\"406\"")){
+				window.location.replace("404.html");
+			}
+        	var tv_and_smartliving = JSON.parse(response);
+            var tv_and_smartliving_name = tv_and_smartliving.name;
+            var tv_and_smartliving_img_number = tv_and_smartliving.imgnumber;
+            var tv_and_smartliving_price = tv_and_smartliving["price"];
+			var tv_and_smartliving_promotion = tv_and_smartliving["promotion"];
+            var tv_and_smartliving_discountedprice = tv_and_smartliving["discountedprice"];
+            var tv_and_smartliving_description = tv_and_smartliving.description;
+            var tv_and_smartliving_features = JSON.parse(tv_and_smartliving.features).features;
+            $("#deviceName").text(tv_and_smartliving_name);
+            $("#deviceImage").attr('src',"images/devices/tv_and_smartliving/" + tv_and_smartliving_name + "_1.png");
+            $("#deviceImage").attr('data-large',"images/devices/tv_and_smartliving/" + tv_and_smartliving_name + "_1.png");
+			var i;
+            for(i=1;i<=tv_and_smartliving_img_number;i++){
+            	var li;
+            	var string = '"images/devices/tv_and_smartliving/' + tv_and_smartliving_name + '_' + i + '.png"'
+                li = document.getElementById("li"+i);
+            	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
+            }
+            //TODO DO SOMETHING WITH DESCRIPTION
+            delete tv_and_smartliving.id;
+            delete tv_and_smartliving.description;
+            delete tv_and_smartliving.name;
+			delete tv_and_smartliving.price;
+			delete tv_and_smartliving.promotion;
+			delete tv_and_smartliving.discountedprice;
+            delete tv_and_smartliving.imgnumber;
+            delete tv_and_smartliving.features;
+            var table = document.getElementById("deviceTable");
+			for(var i in tv_and_smartliving){
+            	var newRow = table.insertRow(table.rows.length);
+                var cell1 = newRow.insertCell(0);
+				var cell2 = newRow.insertCell(1);
+            	cell1.innerHTML = capitalizeFirstLetter(i);
+                cell2.innerHTML = tv_and_smartliving[i];
+            }
+            for (var i in tv_and_smartliving_features){
+            	var newRow = table.insertRow(table.rows.length);
+                var cell1 = newRow.insertCell(0);
+				var cell2 = newRow.insertCell(1);
+            	cell1.innerHTML = tv_and_smartliving_features[i].featureName;
+                cell2.innerHTML = tv_and_smartliving_features[i].featureValue;               
+            }
+            var newRow = table.insertRow(table.rows.length);
+            var cell1 = newRow.insertCell(0);
+			var cell2 = newRow.insertCell(1);
+            cell1.innerHTML = "Price";
+            var price = tv_and_smartliving_price;
+            if(tv_and_smartliving_promotion!=0){
+            	price = price.concat(" PROMO " + tv_and_smartliving_discountedprice);
+            }
+			cell2.innerHTML = price;
+		},
+        error: function(request, error){
+			console.log(request + " : " + error);
+		}    
+    });
+}

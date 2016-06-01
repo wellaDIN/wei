@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Wei - Networking</title>
+		<title>Wei - TV &amp; Smart Living</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -11,12 +11,26 @@
 		<link href="css/menu-style.css" rel="stylesheet" media="screen">
 		<link href="css/wei.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="homeshop/css/fontello.css">
-
+        
 		<!--== Google Fonts ==-->
 		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-        
+ 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,900,700italic,500italic' rel='stylesheet' type='text/css'>
+       
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="homeshop/css/style.css">
+        <link rel="stylesheet" href="homeshop/css/flexslider.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="homeshop/css/fontello.css">
+   		<link rel="stylesheet" href="homeshop/css/animation.css">
+		<link rel="stylesheet" href="homeshop/css/owl.carousel.css">
+		<link rel="stylesheet" href="homeshop/css/owl.theme.css">
+		<link rel="stylesheet" href="homeshop/css/chosen.css">
+        <link href="homeshop/css/jquery.nouislider.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/filterPanel.css">
+
+
 	</head>
 	<body>
 		<!--===============================-->
@@ -46,16 +60,91 @@
 		</header>
 
 		<div class="container content">
-            <div class="row" style="margin-left:2px; margin-right:2px">
+        
+            <div class="row" style="margin-left:2px; margin-right:2px; margin-top: 0px">
           		<div class="breadcrumbs">
               		<p><a href="index.html">Home</a> <i class="icons icon-right-dir"></i> <a href="devices.html">Devices</a>  <i class="icons icon-right-dir"></i> Networking</p>
             	</div>
         	</div>
             
-			<div class="row"style="margin-left:2px; margin-right:2px; margin-top: 0px">
-					<h1>Networking</h1>
-					<a href="#">Router</a>
-			</div>
+            	<!-- Main Content -->
+				<section class="main-content col-lg-9 col-md-9 col-sm-9 col-xs-7">     
+					<div class="itemContainer" id="items">
+					</div>
+				</section>
+				<!-- /Main Content -->
+				
+				<!-- Sidebar -->
+				<aside class="sidebar right-sidebar col-lg-3 col-md-3 col-sm-3 col-xs-5">
+					
+                    <!-- Filter -->
+                    <div class="row sidebar-box green">
+                    
+                    	<div class="col-lg-12 col-md-12 col-sm-12">
+                        	
+                            <div class="sidebar-box-heading">
+                            	<i class="icons icon-filter"></i>
+                            	<h4>Filters</h4>
+                            </div>
+                            
+                            <div class="sidebar-box-content sidebar-padding-box">
+                            	<label>Brand</label><br>
+                                <select id="brand-select" class="filters-select chosen-select-full-width">
+                                	<option value="*">All</option>
+									<option value=".tplink">TP Link</option>
+                                    <option value=".wei">Wei</option>
+                                    <option value=".cisco">Cisco</option>
+                                    <option value=".xyzel">ZyXEL</option>
+                                    <option value=".bybuy">ByBuy</option>
+                                </select>
+                                <br><br>
+                                <label>Connectivity Type</label><br>
+                                <p class="filters">
+									<label>
+										<input type="radio" name="filter" value="*" checked="checked" /> All
+									</label><br/>
+                                    <label>
+										<input type="radio" name="filter" value=".wireless" /> Wireless
+									</label><br/>
+                                    <label>
+										<input type="radio" name="filter" value=".usb" /> USB
+									</label><br/>
+                                    <label>
+										<input type="radio" name="filter" value=".ethernet" /> Ethernet
+									</label><br/>
+								</p>
+                                <br>
+                                <label>Activity</label><br>
+                                <p class="act-filters">
+									<label>
+										<input type="radio" name="actfilter" value="*" checked="checked" /> All
+									</label><br/>
+									<label>
+										<input type="radio" name="actfilter" value=".gaming" />Gaming
+									</label><br/>
+									<label>
+										<input type="radio" name="actfilter" value=".business" />Business
+									</label><br/>
+                                    <label>
+										<input type="radio" name="actfilter" value=".personal" />Personal
+									</label><br/>
+								</p>
+                                <br/>
+                                <label>Price</label>
+								<br><br>
+								<div id="price-filter"></div>
+								<span class="price-range-min"></span>
+								<span class="price-range-max"></span>
+                                <br><br>
+                                <input id="resetButton" class="dark-blue" type="reset" value="Reset">                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>			
+				</aside>
+				<!-- /Sidebar -->
+                
 		</div>
 		
 		<footer class="footer">
@@ -66,11 +155,36 @@
 			</div>
 		</footer>
 		
+		<!-- JavaScript -->
+		<script src="homeshop/js/modernizr.min.js"></script>
+		<script src="homeshop/js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="homeshop/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="homeshop/js/jquery.raty.min.js"></script>
+		
+		<!-- Script for sliding images (photos, related services) // Used for sliding -->
+		<script src="homeshop/js/perfect-scrollbar.min.js"></script>
+		<script src="homeshop/js/owl.carousel.min.js"></script>
+		
+		<!-- jQuery REVOLUTION Slider  -->
+		<script type="text/javascript" src="homeshop/js/jquery.themepunch.plugins.min.js"></script>
+		<script type="text/javascript" src="homeshop/js/jquery.themepunch.revolution.min.js"></script>
 
-		<!--== Javascript Files ==-->
-		<script src="js/jquery-2.1.0.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/menu.js"></script>
+		<!-- FlexSlider -->
+		<script defer src="homeshop/js/flexslider.min.js"></script>
+		
+        <!-- noUi Slider -->
+		<script src="homeshop/js/jquery.nouislider.min.js"></script>
+		
+		<!-- SelectJS -->
+        <script src="homeshop/js/chosen.jquery.min.js" type="text/javascript"></script>
+        
+        <!-- Main JS -->
+        <script defer src="js/bootstrap.min.js"></script>
+        <script src="homeshop/js/main-script.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/isotope.pkgd.js"></script>
+        <script src="js/pages/networking.js"></script>
+        
 
 	</body>
 </html>
