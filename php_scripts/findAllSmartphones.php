@@ -11,20 +11,19 @@
     	die("Connection failed: " . $conn->connect_error);
 	} 
     
-    $id = $_POST["id"];
-
-	$sql = "SELECT * FROM device WHERE id=".$id;
+	$sql = "SELECT id, name, brand, os, discountedprice, size FROM smartphone";
 	$result = $conn->query($sql);
-    $resultsNumber = $result->num_rows;
+    $resultsNumber = $result->num_rows;    
 
-	if ($resultsNumber == 1) {
-		$row = $result -> fetch_assoc();
-        echo json_encode($row);
-	} else if ($resultsNumber == 0){
+	if ($resultsNumber > 0){
+    	$arrayResult = array();
+        while($row = $result ->fetch_array(MYSQL_ASSOC)){
+        	$arrayResult[] = $row;
+        }
+        echo json_encode($arrayResult);
+    } else {
     	echo json_encode("405");
-	} else if ($resultsNumber > 1){
-    	echo json_encode("406");
-	}
-    
+        exit(1);
+    }
     $conn->close();
 ?>

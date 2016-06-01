@@ -81,18 +81,15 @@ function render_smartphone_page(){
             var device_discountedprice = device["discountedprice"];
             var device_description = device.description;
             $("#deviceName").text(device_name);
-            $("#deviceImage").attr('src',"images/" + device_name + "_1.png");
-            $("#deviceImage").attr('data-large',"images/" + device_name + "_1.png");
-			/** CODICE CHE TOCCA LO SLIDE
+            $("#deviceImage").attr('src',"images/devices/smartphone/" + device_name + "_1.png");
+            $("#deviceImage").attr('data-large',"images/devices/smartphone/" + device_name + "_1.png");
             var i;
-            var ul = document.getElementById("imgSlides");
-            for(i=1;i<=device_img_number;i++){
-                var string = '"images/' + device_name + '_' + i + '.png"'
-				var li = document.createElement("li");
-  				li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + '/>';
-  				ul.appendChild(li);
+           	for(i=1;i<=device_img_number;i++){
+            	var li;
+            	var string = '"images/devices/smartphone/' + device_name + '_' + i + '.png"'
+                li = document.getElementById("li"+i);
+            	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
             }
-            */
             //TODO DO SOMETHING WITH DESCRIPTION
             delete device.id;
             delete device.description;
@@ -159,16 +156,15 @@ function render_tablet_page(){
             var device_conn_gsm = device.conn_gsm;
             var device_conn_wifi = device.conn_wifi;
             $("#deviceName").text(device_name);
-            $("#deviceImage").attr('src',"images/" + device_name + "_1.png");
-            $("#deviceImage").attr('data-large',"images/" + device_name + "_1.png");
-			/**var i;
-            var ul = document.getElementById("imgSlides");
+            $("#deviceImage").attr('src',"images/devices/tablet/" + device_name + "_1.png");
+            $("#deviceImage").attr('data-large',"images/devices/tablet/" + device_name + "_1.png");
+			var i;
             for(i=1;i<=device_img_number;i++){
-                var string = '"images/' + device_name + '_' + i + '.png"'
-				var li = document.createElement("li");
-  				li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + '/>';
-  				ul.appendChild(li);
-            }*/
+            	var li;
+            	var string = '"images/devices/tablet/' + device_name + '_' + i + '.png"'
+                li = document.getElementById("li"+i);
+            	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
+            }
             //TODO DO SOMETHING WITH DESCRIPTION
             delete device.id;
             delete device.description;

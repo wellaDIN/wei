@@ -626,6 +626,398 @@ table.product-actions-single input{
 }
 
 
+/* ==================================== */
+/*               SIDEBAR                */
+/* ==================================== */
+
+.sidebar-box{
+	margin-bottom:30px;
+	color:#7a8188;
+}
+
+.sidebar-box .padding-box{
+	padding:15px;	
+}
+
+.sidebar-box-heading{
+	color:#fff;
+	text-transform:uppercase;
+	background:#34495e;
+	overflow:hidden;
+	height:50px;
+	padding:12px 20px 12px 40px;
+}
+
+.sidebar-box-heading .icons{
+	position:absolute;
+	left:30px;
+}
+
+.sidebar-box-heading h4{
+	margin:0;
+	display:inline-block;
+	padding-left:5px;
+}
+
+.sidebar-box-content{
+	background:#fff;
+}
+
+.sidebar-box-content.sidebar-padding-box{
+	padding:20px 15px;
+}
+
+.sidebar-box-content>*{
+	margin:0;
+}
+
+.sidebar-box-content ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+.sidebar-box-content>ul{
+	padding:20px 0;
+}
+
+.sidebar-box-content>ul>li{
+	position:relative;	
+}
+
+.sidebar-box-content>ul>li>a{
+	display:block;
+	padding:8px 35px 8px 20px;
+}
+
+.sidebar-box-content>ul>li>a .icons{
+	position:absolute;
+	right:15px;
+	top:10px;
+	font-size:14px;
+}
+
+.sidebar-box-content>ul>li>a:hover{
+	background:#f7f7f7;
+}
+
+.sidebar-box-content>ul>li:hover .sidebar-dropdown{
+	display:table;
+}
+
+.sidebar-dropdown{
+	position:absolute;
+	left:100%;
+	top:-10px;	
+	z-index:6000;
+	display:none;
+	background:#9b59b6;
+}
+
+.sidebar-box .chosen-single{
+	height:40px;
+	font-size:14px;
+	color:#7a8188;
+	padding: 8px 0 0 8px;
+	border:1px solid #e6e6e6;
+	margin-top:5px;
+}
+
+.sidebar-box .chosen-results{
+	border:1px solid #e6e6e6;
+	border-top:none;
+}
+
+.sidebar-box .chosen-results li{
+	padding:10px 6px;
+}
+
+.sidebar-box .chosen-single div {
+  top:8px;
+}
+
+.right-sidebar .sidebar-dropdown{
+	left:auto;
+	right:100%;	
+}
+
+.sidebar-dropdown>li{
+	overflow:hidden;
+	display:table-cell;
+	vertical-align:top;
+}
+
+.sidebar-dropdown>li>ul{
+	float:left;
+	width:250px;
+	padding:10px 0;
+	display:table;
+}
+
+.sidebar-dropdown>li>ul>li>a{
+	padding:8px 20px;
+	display:block;	
+	color:#fff;
+}
+
+.sidebar-dropdown>li>ul>li>a:hover{
+	background:#8e44ad;	
+}
+
+.sidebar-dropdown>li:last-child{
+	margin:0;	
+}
+
+.sidebar-slider{
+	position:relative;
+	display:block;
+	overflow:hidden;
+}
+
+.sidebar-slider .flex-control-nav{
+	display:block;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	width:100%;
+}
+
+.sidebar-slider .flex-control-paging li a {
+	border-radius:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	-ms-border-radius:0;
+	-o-border-radius:0;
+	width:9px;
+	height:9px;
+	background:#ccc;
+}
+
+.sidebar-slider .flex-control-paging li a:hover,  .sidebar-slider .flex-control-paging li a.flex-active{
+	background:#27ae60;
+}
+
+.sidebar-slider .slider-nav{
+	background:#f7f7f7;
+	display:block;
+	height:30px;
+}
+
+.bestsellers-table, .compare-table{
+	width:100%;
+	background:#fff;
+}
+
+.bestsellers-table tr, .compare-table tr{
+	padding-left:20px;
+	transition:background 0.3s;
+	-webkit-transition:background 0.3s;
+	-moz-transition:background 0.3s;
+	-ms-transition:background 0.3s;
+	-o-transition:background 0.3s;
+}
+
+.bestsellers-table tr:hover{
+	background:#f7f7f7;
+}
+
+.bestsellers-table .product-thumbnail, .compare-table .product-thumbnail{
+	width:45%;
+	padding:10px 10px 10px 15px;
+}
+
+.bestsellers-table .product-thumbnail img, .compare-table .product-thumbnail img{
+	width:100%;
+}
+
+.bestsellers-table .product-info, .compare-table .product-info{
+	background:transparent;
+	overflow:hidden;
+	padding:5px 20px 5px 5px;
+}
+
+.bestsellers-table .product-info p, .bestsellers-table .product-info span.price, .compare-table .product-info p{
+	font-size:14px;
+	margin:0 0 5px;
+}
+
+.sidebar .product{
+	margin-bottom:0;
+}
+
+a.remove{
+	font-size:12px;
+	color:#e74c3c;	
+}
+
+a.tag-item{
+	display:inline-block;
+	background:#f7f7f7;
+	margin-bottom:5px;
+	padding:5px 10px;
+	vertical-align:top;
+	font-size:14px;
+}
+
+a.tag-item:hover{
+	color:#fff;
+	background:#1abc9c;
+}
+
+.orange .carousel-heading{
+	background:#f5791f;
+}
+
+.orange .carousel-arrows i:hover{
+	background:#d35400;	
+}
+
+.noUi-base {
+	background:#f7f7f7;
+	border:none
+}
+
+.noUi-background{
+	box-shadow:none;
+}
+
+.noUiSlider{
+	margin-top:10px;	
+	border-radius:0;
+	height:12px;
+	margin-bottom:10px;
+	border:1px solid #e6e6e6;
+}
+
+.noUi-horizontal .noUi-handle {
+	width: 15px;
+	height: 22px;
+	left: -5px;
+	background:#a1aaaf;
+	border:none;
+	top: -6px;
+	box-shadow:none;
+	border-radius:0;
+	cursor:pointer;
+}
+
+.noUi-horizontal .noUi-handle:before, .noUi-horizontal .noUi-handle:after {
+	height:1px;
+	width:5px;
+	left:5px;
+	top:9px;
+	background:#ccc;
+}
+
+.noUi-connect{
+	background:#2ecc71;
+}
+
+.noUi-horizontal .noUi-handle:after{
+	top:11px;	
+}
+
+span.price-range-max, span.size-range-max{
+	float:right;
+	color:#1f2228;
+	font-size:14px;
+}
+
+span.price-range-min, span.size-range-min{
+	color:#1f2228;
+	font-size:14px;
+}
+
+label.color-checkbox.red{
+	background:#e74c3c;
+}
+
+label.color-checkbox.white{
+	background:#fff;
+}
+
+label.color-checkbox.black{
+	background:#000;
+}
+
+label.color-checkbox.blue{
+	background:#3498db;
+}
+
+label.color-checkbox.green{
+	background:#00a847;
+}
+
+label.color-checkbox{
+	width:30px;
+	height:30px;
+	border:2px solid #fff;
+	margin-right:10px!important;
+	outline:1px solid #eee;
+}
+
+label.color-checkbox:before{
+	display:none!important;
+	width:0!important;
+	height:0!important;
+}
+
+input[type="checkbox"]:checked + label.color-checkbox{
+	outline:1px solid #34495e;	
+}
+
+/* Colors */
+
+.purple .sidebar-box-heading, .purple a.tag-item:hover{
+	background:#9b59b6;
+}	
+
+.purple .sidebar-box-content>ul>li>a:hover{
+	color:#9b59b6;
+}
+
+.blue .sidebar-box-heading, .blue a.tag-item:hover{
+	background:#3498db;
+}	
+
+.blue .sidebar-box-content>ul>li>a:hover{
+	color:#3498db;
+}
+
+.red .sidebar-box-heading, .red a.tag-item:hover{
+	background:#e74c3c;
+}	
+
+.red .sidebar-box-content>ul>li>a:hover{
+	color:#e74c3c;
+}
+
+.green .sidebar-box-heading, .green a.tag-item:hover{
+	background:#1abc9c;
+}	
+
+.green .sidebar-box-content>ul>li>a:hover{
+	color:#1abc9c;
+}
+
+.orange .sidebar-box-heading, .orange a.tag-item:hover{
+	background:#f5791f;
+}	
+
+.orange .sidebar-box-content>ul>li>a:hover{
+	color:#f5791f;
+}
+
+.home-green .sidebar-box-heading, .orange a.tag-item:hover{
+	background:#1abc9c;
+}	
+
+.home-green .sidebar-box-content>ul>li>a:hover{
+	color:#1abc9c;
+}
+
+
 
 
 
