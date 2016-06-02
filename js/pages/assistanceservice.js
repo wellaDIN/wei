@@ -79,4 +79,27 @@ function AssistanceServiceFunction(){
 			console.log(request + " : " + error);
 		}
     });
+    $.ajax({
+    	method: 'POST',
+        crossDomain: true,
+        data: {id: serviceID},
+        url: 'php_scripts/findDeviceRelatedToAssService.php',
+        success: function(response){
+			if(response==("\"405\"")){
+				window.location.replace("404.html");
+			}
+			var relDevices = JSON.parse(response);
+            for (i in relDevices){
+            	$("#relatedDevice").append('<div class="product"><div class="product-image"><img src="images/devices/' + relDevices[i].category.toLowerCase() + '/' + relDevices[i].name + '_1.png"></div><div class="product-info"><h5>' + relDevices[i].name + '</h5><p class="product-categories"><a href="device.html?id=' + relDevices[i].id + '">See more</a></p></div></div>');
+            }
+		},
+        error: function(request, error){
+			console.log(request + " : " + error);
+		},
+        async:false
+    });
 }
+
+
+
+  

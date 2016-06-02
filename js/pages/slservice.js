@@ -34,6 +34,7 @@ function SLServiceFunction(){
 			if(response==("\"405\"") || response==("\"406\"")){
 				window.location.replace("404.html");
 			}
+            $("#slservicename_title").text(service.name);
             $("#slservice_description").text(service.description);
             $("#slservice_activandrules").text(service["activ-rules"]);
             if(service.promo!=null){
