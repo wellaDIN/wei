@@ -319,12 +319,12 @@ function render_tv_page(){
             var tv_and_smartliving_description = tv_and_smartliving.description;
             var tv_and_smartliving_features = JSON.parse(tv_and_smartliving.features).features;
             $("#deviceName").text(tv_and_smartliving_name);
-            $("#deviceImage").attr('src',"images/devices/tv_and_smartliving/" + tv_and_smartliving_name + "_1.png");
-            $("#deviceImage").attr('data-large',"images/devices/tv_and_smartliving/" + tv_and_smartliving_name + "_1.png");
+            $("#deviceImage").attr('src',"images/devices/tv/" + tv_and_smartliving_name + "_1.png");
+            $("#deviceImage").attr('data-large',"images/devices/tv/" + tv_and_smartliving_name + "_1.png");
 			var i;
             for(i=1;i<=tv_and_smartliving_img_number;i++){
             	var li;
-            	var string = '"images/devices/tv_and_smartliving/' + tv_and_smartliving_name + '_' + i + '.png"'
+            	var string = '"images/devices/tv/' + tv_and_smartliving_name + '_' + i + '.png"'
                 li = document.getElementById("li"+i);
             	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
             }

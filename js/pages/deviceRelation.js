@@ -30,6 +30,9 @@ function deviceRelation(){
         url: 'php_scripts/findSLServiceRelatedToDevice.php',
         data: {id: deviceID},
         success: function(response){
+        	if(response==("\"405\"") || response==("\"406\"")){
+				return;
+			}
         	var relServices = JSON.parse(response);
             for (i in relServices){
             	$("#relatedSLServiceCarousel").append('<div><div class="product"><div class="product-image"><img src="images/slservices/' + relServices[i].category.replace(/\s+/g, '').toLowerCase() + '/' + relServices[i].name + '_logo.png"/></div><div class="product-info"><h5>' + relServices[i].name + '</h5><p class="product-categories"><a href="slservice.html?id=' + relServices[i].id + '">See more</a></p></div></div></div>');
@@ -46,7 +49,10 @@ function deviceRelation(){
         url: 'php_scripts/findAssServiceRelatedToDevice.php',
         data: {id: deviceID},
         success: function(response){
-        	var relServices = JSON.parse(response);
+        	if(response==("\"405\"") || response==("\"406\"")){
+				return;
+			}
+            var relServices = JSON.parse(response);
             for (i in relServices){
             	$("#relatedAssistanceService").append('<div><div class="product"><div class="product-info"><h5>' + relServices[i].name + '</h5><p class="product-categories"><a href="assistanceservice.html?id=' + relServices[i].id + '">See more</a></p></div></div></div>');
             }

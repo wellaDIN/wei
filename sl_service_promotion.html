@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Wei - SL Service in promotion</title>
+		<title>Wei - SL Service in Promotion</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -11,12 +11,13 @@
 		<link href="css/menu-style.css" rel="stylesheet" media="screen">
 		<link href="css/wei.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="homeshop/css/fontello.css">
+		<link href="css/prova.css" rel="stylesheet" media="screen">
+    	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">      
 
 		<!--== Google Fonts ==-->
 		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-        
 	</head>
 	<body>
 		<!--===============================-->
@@ -48,16 +49,29 @@
 		<div class="container content">
             <div class="row" style="margin-left:2px; margin-right:2px">
           		<div class="breadcrumbs">
-              		<p><a href="index.html">Home</a> <i class="icons icon-right-dir"></i> <a href="slservices.html">Smart Life Services</a>  <i class="icons icon-right-dir"></i> SL Service in Promotion</p>
+              		<p><a href="index.html">Home</a> <i class="icons icon-right-dir"></i> <a href="slservices.html">Smart Life Services</a>  <i class="icons icon-right-dir"></i> Promotion</p>
             	</div>
         	</div>
             
-			<div class="row"style="margin-left:2px; margin-right:2px; margin-top:0px">
-					<h1>SL Services in promotion</h1>
-                    <p align="justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
+            <div class="row col-xs-12">
+			    <div class="carousel slide" id="myCarousel">
+        			<div class="carousel-inner" id="carouselInner">
+						<div class="item active">
+                    		<ul class="thumbnails" id="slide1">
+                        		
+                    		</ul>
+              			</div>
+        			</div>
+					<nav>
+						<ul id="sliderController" class="control-box pager">
+							<li><a data-slide="prev" href="#myCarousel" class="serviceSlideControl"><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+							<li><a data-slide="next" href="#myCarousel" class="serviceSlideControl"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+						</ul>
+					</nav>                
+    			</div><!-- /#myCarousel -->      
+			</div><!-- /.col-xs-12 -->            
 		</div>
-		
+
 		<footer class="footer">
 			<div class="container">
 				<div class="row">
@@ -71,6 +85,14 @@
 		<script src="js/jquery-2.1.0.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/menu.js"></script>
-
+        <script src="js/pages/slServicePromotion.js"></script>
+		<script>
+			// Carousel Auto-Cycle
+  			$(document).ready(function() {
+				$('.carousel').carousel({
+      				interval: 6000
+    			})
+  			});
+		</script>
 	</body>
 </html>
