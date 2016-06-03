@@ -38,7 +38,7 @@ function SLServiceFunction(){
             $("#slservice_description").text(service.description);
             $("#slservice_activandrules").text(service["activ-rules"]);
             if(service.promo!=null){
-            	$("#slservice_promo").html(service.promo + " (<a href=\"#\">Go to other promo</a>)");
+            	$("#slservice_promo").html(service.promo + " (<a href=\"sl_service_promotion.html\">Go to other promo</a>)");
 			}
 		},
         error: function(request, error){

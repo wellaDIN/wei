@@ -39,7 +39,9 @@ $(document).ready(slCategory);
 
 function slCategory(){
 	var serviceCategory = convertCategory(findParameter("category"));
-	$.ajax({
+    $("#" + findParameter("category") + "link").attr('style','pointer-events: none; cursor: default; color: #7a8188;');
+	$("#ASOrientInfo").append(serviceCategory);    
+    $.ajax({
     	method: 'POST',
         crossDomain: true,
         data: {category: serviceCategory},

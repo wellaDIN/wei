@@ -41,15 +41,23 @@ function deviceFunction(){
 			}
 			switch(category) {
     			case "Smartphone":
+                	$("#category").attr("href", "smartphones.html");
+                    $('#category').text('Smartphones');
 					render_smartphone_page();
 					break;
                 case "Tablet":
+                    $("#category").attr("href", "tablets.html");
+                    $('#category').text('Tablets');
                 	render_tablet_page();
 					break;
                 case "Networking":
+                    $("#category").attr("href", "networking.html");
+                    $('#category').text('Networking');
                 	render_networking_page();
 					break;
                 case "Tv":
+                    $("#category").attr("href", "tvandsl.html");
+                    $('#category').text('TV & Smart Living');
                 	render_tv_page();
 					break;
     			default:
@@ -79,10 +87,11 @@ function render_smartphone_page(){
             var device_price = device["price"];
 			var device_promotion = device["promotion"];
             var device_discountedprice = device["discountedprice"];
-            var device_description = device.description;
+            $("#orientationInfo").append(device_name);
             $("#deviceName").text(device_name);
             $("#deviceImage").attr('src',"images/devices/smartphone/" + device_name + "_1.png");
             $("#deviceImage").attr('data-large',"images/devices/smartphone/" + device_name + "_1.png");
+            $("#deviceDescription").text(device.description);
             var i;
            	for(i=1;i<=device_img_number;i++){
             	var li;
@@ -90,19 +99,19 @@ function render_smartphone_page(){
                 li = document.getElementById("li"+i);
             	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
             }
-            //TODO DO SOMETHING WITH DESCRIPTION
             delete device.id;
             delete device.description;
             delete device.name;
 			delete device.price;
 			delete device.promotion;
 			delete device.discountedprice;
+            delete device.imgnumber;
             var table = document.getElementById("deviceTable");
 			for(var i in device){
             	var newRow = table.insertRow(table.rows.length);
                 var cell1 = newRow.insertCell(0);
 				var cell2 = newRow.insertCell(1);
-            	cell1.innerHTML = capitalizeFirstLetter(i);
+            	cell1.innerHTML = '<b>' + capitalizeFirstLetter(i) + '</b>';
 				switch(i){
                 	case "size" :
                     	cell2.innerHTML = device[i].concat(" inches");
@@ -120,11 +129,12 @@ function render_smartphone_page(){
             var newRow = table.insertRow(table.rows.length);
             var cell1 = newRow.insertCell(0);
 			var cell2 = newRow.insertCell(1);
-            cell1.innerHTML = "Price";
-            var price = device_price;
+            cell1.innerHTML = "<b>Price</b>";
+            var price = device_price + ' €';
             if(device_promotion!=0){
-            	price = price.concat(" PROMO " + device_discountedprice);
-            }
+				price = '<strike>' + price + '</strike> ';
+            	price = '<p style="display: inline; vertical-align: middle"> ' + price.concat(device_discountedprice + ' €</p>  <a href="device_promotion.html" style="padding: 1px 12px" class="btn btn-warning" role="button">Go To Promo</a>');
+             }
 			cell2.innerHTML = price;
 		},
         error: function(request, error){
@@ -152,12 +162,13 @@ function render_tablet_page(){
             var device_price = device["price"];
 			var device_promotion = device["promotion"];
             var device_discountedprice = device["discountedprice"];
-            var device_description = device.description;
             var device_conn_gsm = device.conn_gsm;
             var device_conn_wifi = device.conn_wifi;
+            $("#orientationInfo").append(device_name);
             $("#deviceName").text(device_name);
             $("#deviceImage").attr('src',"images/devices/tablet/" + device_name + "_1.png");
             $("#deviceImage").attr('data-large',"images/devices/tablet/" + device_name + "_1.png");
+            $("#deviceDescription").text(device.description);
 			var i;
             for(i=1;i<=device_img_number;i++){
             	var li;
@@ -165,7 +176,6 @@ function render_tablet_page(){
                 li = document.getElementById("li"+i);
             	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
             }
-            //TODO DO SOMETHING WITH DESCRIPTION
             delete device.id;
             delete device.description;
             delete device.name;
@@ -180,7 +190,7 @@ function render_tablet_page(){
             	var newRow = table.insertRow(table.rows.length);
                 var cell1 = newRow.insertCell(0);
 				var cell2 = newRow.insertCell(1);
-            	cell1.innerHTML = capitalizeFirstLetter(i);
+            	cell1.innerHTML = '<b>' + capitalizeFirstLetter(i) + '</b>';
 				switch(i){
                 	case "size" :
                     	cell2.innerHTML = device[i].concat(" inches");
@@ -198,7 +208,7 @@ function render_tablet_page(){
             var connRow = table.insertRow(table.rows.length);
             var cell1 = connRow.insertCell(0);
 			var cell2 = connRow.insertCell(1);
-            cell1.innerHTML = "Connectivity";
+            cell1.innerHTML = "<b>Connectivity</b>";
             var string;
             if(device_conn_gsm!=0 && device_conn_wifi!=0){
             	string = "3G/4G, WiFi";
@@ -216,10 +226,11 @@ function render_tablet_page(){
             var newRow = table.insertRow(table.rows.length);
             var cell1 = newRow.insertCell(0);
 			var cell2 = newRow.insertCell(1);
-            cell1.innerHTML = "Price";
-            var price = device_price;
+            cell1.innerHTML = "<b>Price</b>";
+            var price = device_price + ' €';
             if(device_promotion!=0){
-            	price = price.concat(" PROMO " + device_discountedprice);
+				price = '<strike>' + price + '</strike> ';
+            	price = '<p style="display: inline; vertical-align: middle"> ' + price.concat(device_discountedprice + ' €</p>  <a href="device_promotion.html" style="padding: 1px 12px" class="btn btn-warning" role="button">Go To Promo</a>');
             }
 			cell2.innerHTML = price;
 		},
@@ -247,11 +258,12 @@ function render_networking_page(){
             var networking_price = networking["price"];
 			var networking_promotion = networking["promotion"];
             var networking_discountedprice = networking["discountedprice"];
-            var networking_description = networking.description;
             var networking_features = JSON.parse(networking.features).features;
+            $("#orientationInfo").append(networking_name);
             $("#deviceName").text(networking_name);
             $("#deviceImage").attr('src',"images/devices/networking/" + networking_name + "_1.png");
             $("#deviceImage").attr('data-large',"images/devices/networking/" + networking_name + "_1.png");
+            $("#deviceDescription").text(networking.description);
 			var i;
             for(i=1;i<=networking_img_number;i++){
             	var li;
@@ -259,7 +271,6 @@ function render_networking_page(){
                 li = document.getElementById("li"+i);
             	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
             }
-            //TODO DO SOMETHING WITH DESCRIPTION
             delete networking.id;
             delete networking.description;
             delete networking.name;
@@ -273,23 +284,24 @@ function render_networking_page(){
             	var newRow = table.insertRow(table.rows.length);
                 var cell1 = newRow.insertCell(0);
 				var cell2 = newRow.insertCell(1);
-            	cell1.innerHTML = capitalizeFirstLetter(i);
+            	cell1.innerHTML = '<b>' + capitalizeFirstLetter(i) + '</b>';
                 cell2.innerHTML = networking[i];
             }
             for (var i in networking_features){
             	var newRow = table.insertRow(table.rows.length);
                 var cell1 = newRow.insertCell(0);
 				var cell2 = newRow.insertCell(1);
-            	cell1.innerHTML = networking_features[i].featureName;
+            	cell1.innerHTML = '<b>' + networking_features[i].featureName + '</b>';
                 cell2.innerHTML = networking_features[i].featureValue;               
             }
             var newRow = table.insertRow(table.rows.length);
             var cell1 = newRow.insertCell(0);
 			var cell2 = newRow.insertCell(1);
-            cell1.innerHTML = "Price";
-            var price = networking_price;
+            cell1.innerHTML = "<b>Price</b>";
+            var price = networking_price + ' €';
             if(networking_promotion!=0){
-            	price = price.concat(" PROMO " + networking_discountedprice);
+				price = '<strike>' + price + '</strike> ';
+            	price = '<p style="display: inline; vertical-align: middle"> ' + price.concat(networking_discountedprice + ' €</p>  <a href="device_promotion.html" style="padding: 1px 12px" class="btn btn-warning" role="button">Go To Promo</a>');
             }
 			cell2.innerHTML = price;
 		},
@@ -316,11 +328,12 @@ function render_tv_page(){
             var tv_and_smartliving_price = tv_and_smartliving["price"];
 			var tv_and_smartliving_promotion = tv_and_smartliving["promotion"];
             var tv_and_smartliving_discountedprice = tv_and_smartliving["discountedprice"];
-            var tv_and_smartliving_description = tv_and_smartliving.description;
             var tv_and_smartliving_features = JSON.parse(tv_and_smartliving.features).features;
-            $("#deviceName").text(tv_and_smartliving_name);
+            $("#orientationInfo").append(tv_and_smartliving_name);
+			$("#deviceName").text(tv_and_smartliving_name);
             $("#deviceImage").attr('src',"images/devices/tv/" + tv_and_smartliving_name + "_1.png");
             $("#deviceImage").attr('data-large',"images/devices/tv/" + tv_and_smartliving_name + "_1.png");
+            $("#deviceDescription").text(tv_and_smartliving.description);
 			var i;
             for(i=1;i<=tv_and_smartliving_img_number;i++){
             	var li;
@@ -328,7 +341,6 @@ function render_tv_page(){
                 li = document.getElementById("li"+i);
             	li.innerHTML = '<a class="fancybox" rel="product-images" href=' + string + '></a><img src=' + string + ' data-large=' + string + ' alt=""/>';        
             }
-            //TODO DO SOMETHING WITH DESCRIPTION
             delete tv_and_smartliving.id;
             delete tv_and_smartliving.description;
             delete tv_and_smartliving.name;
@@ -342,23 +354,24 @@ function render_tv_page(){
             	var newRow = table.insertRow(table.rows.length);
                 var cell1 = newRow.insertCell(0);
 				var cell2 = newRow.insertCell(1);
-            	cell1.innerHTML = capitalizeFirstLetter(i);
+            	cell1.innerHTML = '<b>' + capitalizeFirstLetter(i) + '</b>';
                 cell2.innerHTML = tv_and_smartliving[i];
             }
             for (var i in tv_and_smartliving_features){
             	var newRow = table.insertRow(table.rows.length);
                 var cell1 = newRow.insertCell(0);
 				var cell2 = newRow.insertCell(1);
-            	cell1.innerHTML = tv_and_smartliving_features[i].featureName;
+            	cell1.innerHTML = '<b>' + tv_and_smartliving_features[i].featureName + '</b>';
                 cell2.innerHTML = tv_and_smartliving_features[i].featureValue;               
             }
             var newRow = table.insertRow(table.rows.length);
             var cell1 = newRow.insertCell(0);
 			var cell2 = newRow.insertCell(1);
-            cell1.innerHTML = "Price";
-            var price = tv_and_smartliving_price;
+            cell1.innerHTML = "<b>Price</b>";
+            var price = tv_and_smartliving_price + ' €';
             if(tv_and_smartliving_promotion!=0){
-            	price = price.concat(" PROMO " + tv_and_smartliving_discountedprice);
+            	price = '<strike>' + price + '</strike> ';
+            	price = '<p style="display: inline; vertical-align: middle"> ' + price.concat(tv_and_smartliving_discountedprice + ' €</p>  <a href="device_promotion.html" style="padding: 1px 12px" class="btn btn-warning" role="button">Go To Promo</a>');
             }
 			cell2.innerHTML = price;
 		},

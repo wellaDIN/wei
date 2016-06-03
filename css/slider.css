@@ -9,10 +9,10 @@ Image credits: unsplash.com
 /********************************/
 .fade-carousel {
     position: relative;
-    height: 100vh;
+    height: 70vh;
 }
 .fade-carousel .carousel-inner .item {
-    height: 100vh;
+    height: 70vh;
 }
 .fade-carousel .carousel-indicators > li {
     margin: 0 2px;
@@ -45,7 +45,7 @@ Image credits: unsplash.com
               transform: translate3d(-50%,-50%,0);
 }
 .hero h1 {
-    font-size: 6em;    
+    font-size: 4em;    
     font-weight: bold;
     margin: 0;
     padding: 0;
@@ -83,7 +83,7 @@ Image credits: unsplash.com
 /********************************/
 /*          Custom Buttons      */
 /********************************/
-.btn.btn-lg {padding: 10px 40px;}
+.btn.btn-lg {padding: 8px 28px;}
 .btn.btn-hero,
 .btn.btn-hero:hover,
 .btn.btn-hero:focus {
@@ -136,7 +136,7 @@ Image credits: unsplash.com
     .hero { width: 980px; }    
 }
 @media screen and (max-width: 640px){
-    .hero h1 { font-size: 4em; }    
+    .hero h1 { font-size: 1.7em; }    
 }
 
 

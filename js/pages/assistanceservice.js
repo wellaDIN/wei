@@ -1,3 +1,18 @@
+function nameToUrl(category){
+	if(category=='Line Management'){
+    	return 'lineman';
+    }
+    if(category=='Cost Monitoring and Payment'){
+    	return 'costandpay';
+    }
+    if(category=='Technical Support'){
+    	return 'techsupp';
+    }
+    if(category=='Smart Life'){
+    	return 'smartlife';
+    }
+}
+
 //Convert param string to jSon object
 function searchToObject() {
   var pairs = window.location.search.substring(1).split("&"),
@@ -35,7 +50,10 @@ function AssistanceServiceFunction(){
             var service_category = service.category;
             var service_description = service.description;
             var service_highlight = service.highlight;
-            var tabs = JSON.parse(service.body).tabs;
+            $("#category").attr("href", "assistance_service_cat.html?category=" + nameToUrl(service_category));
+            $('#category').text(service_category);
+            $("#orientationInfo").append(service_name);
+			var tabs = JSON.parse(service.body).tabs;
             for (i in tabs){
             	//Create a left tab with the tab category name;
                 if(i==0){
