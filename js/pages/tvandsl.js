@@ -15,7 +15,8 @@ $.ajax({
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		}
+		},
+        async:false
     });
    	$('#resetButton').trigger('click');
 }
@@ -101,7 +102,12 @@ function activate_filter_panel(){
         $('#price-filter').val([0,1000]);
         $('.price-range-min').text('€ 0');
 		$('.price-range-max').text('€ 1000');
-		//TODO SET select and radio to all
+		var $radios = $('input:radio[name=filter]');
+        $radios.filter('[value="*"]').prop('checked', true);
+        $radios = $('input:radio[name=connfilter]');
+        $radios.filter('[value="*"]').prop('checked', true);
+        $('select').val("*");
+        $('select').trigger("chosen:updated");
 	});
 }
 

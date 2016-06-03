@@ -38,7 +38,7 @@ function SLServiceFunction(){
             $("#slservice_description").text(service.description);
             $("#slservice_activandrules").text(service["activ-rules"]);
             if(service.promo!=null){
-            	$("#slservice_promo").html(service.promo + " (<a href=\"sl_service_promotion.html\">Go to other promo</a>)");
+            	$("#slservice_promo").html(service.promo + " (<a href=\"sl_service_promotion.html\" style=\"color: #f39c12\">Go to other promo</a>)");
 			}
 		},
         error: function(request, error){
@@ -54,7 +54,7 @@ function SLServiceFunction(){
         	var relDevices = JSON.parse(response);
             var stringRelDev = "";
 			for (i in relDevices){
-            	stringRelDev = stringRelDev + '<br/> <a href="device.html?id=' + relDevices[i].id + '">' + relDevices[i].name + '</a>';
+            	stringRelDev = stringRelDev + '<br/><p style="margin-bottom: 5px"></p> <a href="device.html?id=' + relDevices[i].id + '" style="color: #f39c12">' + relDevices[i].name + '</a>';
             }
             	$("#relatedDevices").html(stringRelDev);
 		},

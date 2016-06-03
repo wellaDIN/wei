@@ -28,3 +28,15 @@
 	});
 
 })(jQuery);
+
+
+function hover(element) {
+    element.setAttribute('src', 'images/icons/linkedin.png');
+}
+function unhover(element) {
+    if(element.id=="Rinaldi"){
+    	element.setAttribute('src', 'images/icons/Rinaldi_icon.png');
+    } else {
+    	element.setAttribute('src', 'images/icons/Russo_icon.png');    
+    }
+}       

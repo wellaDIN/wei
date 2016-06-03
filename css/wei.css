@@ -60,3 +60,28 @@ textarea {
 	font-size:13px;
 	margin:0;
  }
+ 
+ .hidden-scrollbar {
+  background-color:purple;
+  color:white;  
+  overflow:hidden;
+  text-align:justify;    
+}
+
+.hidden-scrollbar .inner {
+  height:200px;
+  overflow:auto;
+  margin:15px -50px 15px 15px;
+  padding-right:30px;
+}
+
+
+.container1{
+    overflow: hidden;
+}
+
+.container2{
+  	height:150px;
+    text-align: justify;
+    overflow-y: scroll;
+}

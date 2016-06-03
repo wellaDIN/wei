@@ -16,7 +16,8 @@ $.ajax({
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		}
+		},
+        async:false
     });
    	$('#resetButton').trigger('click');
 }
@@ -126,7 +127,10 @@ var $itemContainer = $('.itemContainer').isotope({
         $('#price-filter').val([0,900]);
         $('.price-range-min').text('€ 0');
 		$('.price-range-max').text('€ 900');
-		//TODO SET select and radio to all
+		$('select').val("*");
+        $('select').trigger("chosen:updated");
+		var $radios = $('input:radio[name=filter]');
+        $radios.filter('[value="*"]').prop('checked', true);        
 	});
 }
 

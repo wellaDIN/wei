@@ -248,6 +248,7 @@ Footer
 --------------------*/
 .footer {
     margin-top: 40px;
-    padding: 40px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background: #f4f4f4;
 }

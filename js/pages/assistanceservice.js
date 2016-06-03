@@ -1,3 +1,20 @@
+function hideScrollbar(){
+	var parents = document.getElementsByClassName('container1');
+	var childs = document.getElementsByClassName('container2');
+	var size = Object.keys(childs).length;
+	for(i=0;i<size;i++){
+		var parent = parents[i];
+    	var child = childs[i];
+		var number = child.offsetWidth - child.clientWidth + 2;
+    	number = number + "px";
+		child.style.paddingRight = number;
+		child.style.marginTop = number;
+		child.style.marginRight = "-" + number;
+		child.style.marginLeft = number;
+		child.style.margiBottom = number;
+	}
+}
+
 function nameToUrl(category){
 	if(category=='Line Management'){
     	return 'lineman';
@@ -49,7 +66,10 @@ function AssistanceServiceFunction(){
             var service_name = service.name;
             var service_category = service.category;
             var service_description = service.description;
-            var service_highlight = service.highlight;
+            if(service.highlight!=0){
+            	service_description = service_description + '<br><br> This is one of our highlights, the most frequently asked assistance services. <a href="device_promotion.html" style="padding: 1px 12px; font-size:9px" class="btn btn-warning" role="button">Go To Highlights</a>';
+            }
+            $("#description").html(service_description);
             $("#category").attr("href", "assistance_service_cat.html?category=" + nameToUrl(service_category));
             $('#category').text(service_category);
             $("#orientationInfo").append(service_name);
@@ -64,20 +84,21 @@ function AssistanceServiceFunction(){
              	//Create the content of the right tab
                 if(i==0){
                 	tab_body = tabs[0].body;
-                    var string = '';
+                    var string = '<div class="container2" style="height: 350px">';
                     for(j in tab_body){
                     	string = string + '<h2 style="margin-top: 0; color: #428bca">' + tab_body[j].question + '</h2>';
                         string = string + '<h6 style="text-align:"justify">' + tab_body[j].answer + '</h6>';
                     }
+                    string = string + '</div>';
                     $("#active-tab-content").html(string);
                 } else {
 					tab_body = tabs[i].body;
-                    var string = '<div class="bhoechie-tab-content">';
+                    var string = '<div class="bhoechie-tab-content container1"><div class="container2" style="height: 350px">';
                 	for (j in tab_body) {
                     	string = string + '<h2 style="margin-top: 0; color: #428bca">' + tab_body[j].question + '</h2>';
                         string = string + '<h6 style="text-align:"justify">' + tab_body[j].answer + '</h6>';
                  	}
-                    string = string + '</div>';
+                    string = string + '</div></div>';
                     $("#tab-contents-div").append(string);
             	}   
             }
@@ -88,14 +109,17 @@ function AssistanceServiceFunction(){
         		var index = $(this).index();
         		$("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
         		$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+                hideScrollbar();
     		});
 			if(response==("\"405\"") || response==("\"406\"")){
 				window.location.replace("404.html");
 			}
+            hideScrollbar();
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		}
+		},
+        async:false
     });
     $.ajax({
     	method: 'POST',
@@ -108,7 +132,7 @@ function AssistanceServiceFunction(){
 			}
 			var relDevices = JSON.parse(response);
             for (i in relDevices){
-            	$("#relatedDevice").append('<div class="product"><div class="product-image"><img src="images/devices/' + relDevices[i].category.toLowerCase() + '/' + relDevices[i].name + '_1.png"></div><div class="product-info"><h5>' + relDevices[i].name + '</h5><p class="product-categories"><a href="device.html?id=' + relDevices[i].id + '">See more</a></p></div></div>');
+            	$("#relatedDevice").append('<div class="product"><div class="product-image"><img src="images/devices/' + relDevices[i].category.toLowerCase() + '/' + relDevices[i].name + '_1.png"></div><div class="product-info" style="text-align: center"><h5 style="margin-top: 4px">' + relDevices[i].name + '</h5><p class="product-categories"><a href="device.html?id=' + relDevices[i].id + '" class="btn btn-primary" style="background-color: #34495e; border-color: #34495e; color: white; padding: 3px 6px" role="button">See more</a></p></div></div>');
             }
 		},
         error: function(request, error){
@@ -119,5 +143,7 @@ function AssistanceServiceFunction(){
 }
 
 
-
+window.onresize = function(event) {
+	hideScrollbar();
+};
   

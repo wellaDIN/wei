@@ -51,8 +51,9 @@ function slCategory(){
 				window.location.replace("404.html");
 			}
 			var services = JSON.parse(response);
+            $("#serviceList").append('<hr>');
             for (i in services){
-            $("#serviceList").append(services[i].name + ' <a class="btn btn-warning" href="assistanceservice.html?id=' + services[i].id + '" role="button">See details</a><br/>');
+            $("#serviceList").append('··· ' + services[i].name + ' ···<br/><a class="btn btn-warning" href="assistanceservice.html?id=' + services[i].id + '" role="button" style="padding: 1px 12px; font-size:9px">See details</a><hr>');
             
             }
 		},
