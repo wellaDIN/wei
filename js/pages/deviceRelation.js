@@ -27,7 +27,7 @@ function deviceRelation(){
 	$.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findSLServiceRelatedToDevice.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findSLServiceRelatedToDevice.php',
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
@@ -46,7 +46,7 @@ function deviceRelation(){
 	$.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findAssServiceRelatedToDevice.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findAssServiceRelatedToDevice.php',
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
@@ -54,7 +54,7 @@ function deviceRelation(){
 			}
             var relServices = JSON.parse(response);
             for (i in relServices){
-            	$("#relatedAssistanceService").append('<div><div class="product"><div class="product-info" style="text-align: center"><h5 style="margin-top: 4px">' + relServices[i].name + '</h5><p class="product-categories"><a href="assistanceservice.html?id=' + relServices[i].id + '" class="btn btn-primary" style="background-color: #34495e; border-color: #34495e; color: white; padding: 3px 6px" role="button">See more</a></p></div></div></div>');
+            	$("#relatedAssistanceService").append('<div><div class="product"><div class="product-image"><img src="images/assistanceservices/' + relServices[i].category.replace(/\s+/g, '').toLowerCase() + '/' + relServices[i].name.replace(',', '').replace(':', '') + '.png"/></div><div class="product-info" style="text-align: center"><h5 style="margin-top: 4px">' + relServices[i].name + '</h5><p class="product-categories"><a href="assistanceservice.html?id=' + relServices[i].id + '" class="btn btn-primary" style="background-color: #34495e; border-color: #34495e; color: white; padding: 3px 6px" role="button">See more</a></p></div></div></div>');
             }
 		},
         error: function(request, error){

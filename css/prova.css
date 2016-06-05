@@ -23,7 +23,7 @@ a:hover {
 
 .thumbnails li> .fff .caption { 
     background:#fff !important; 
-    padding:10px
+    padding:0 px 10px /* Questa inizialmente era padding: 10px [ma c'era troppo spazio tra gli el.]*/
 }
 
 /* Page Header */

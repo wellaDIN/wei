@@ -4,7 +4,7 @@ function devicePromotion(){
 $.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findSLServiceInPromo.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findSLServiceInPromo.php',
         success: function(response){
         	if(response==("\"405\"")){
 				window.location.replace("404.html");

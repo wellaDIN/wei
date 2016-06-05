@@ -72,7 +72,7 @@ section.success a.active {
 
 @media(max-width:767px) {
     section {
-        padding: 75px 0;
+        padding: 0 0; /* Qui in precedenza era padding: 75px 0;*/
     }
 
     section.first {
@@ -89,15 +89,15 @@ section.success a.active {
     display: block;
     position: relative;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 220px; /* In precedenza qui era 400 px */
 }
 
 #portfolio .portfolio-item .portfolio-link .caption {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 220px; /* In precedenza qui era height: 100%;*/ 
     opacity: 0;
-    background: rgba(24,188,156,.9);
+    background: rgba(24,188,156,.6); /* In precedenza qui era background: rgba(24,188,156,.9); */
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;

@@ -31,7 +31,7 @@
     $serviceNames = array();
     
     foreach ($serviceIDS as $service_id) {
-		$sql = "SELECT id, name FROM assistance_service WHERE id=" . $service_id;
+		$sql = "SELECT id, name, category FROM assistance_service WHERE id=" . $service_id;
 		$result = $conn->query($sql);
         $resultsNumber = $result->num_rows;
 		if ($resultsNumber == 1) {

@@ -4,12 +4,12 @@ function smartphones(){
 $.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findAllSmartphones.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findAllSmartphones.php',
         success: function(response){
             var smartphones = JSON.parse(response);
             for ( i in smartphones) {
                         //TODO GESTIRE windows phone come class
-            	var string = '<div class="thumbnail element-item ' + smartphones[i].brand.toLowerCase() + ' ' + smartphones[i].os.toLowerCase() + ' col-sm-4 col-lg-4 col-md-4" data-category="transition"><img src="http://placehold.it/320x150"/><h4 class="name">' + smartphones[i].name + '</h4><h4 class="number">' + smartphones[i].discountedprice + ' €</h4><h4 class="size" style="display:none">' + smartphones[i].size + '</h4>  <a href="device.html?id=' + smartphones[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
+            	var string = '<div class="thumbnail element-item ' + smartphones[i].brand.toLowerCase() + ' ' + smartphones[i].os.toLowerCase() + ' col-sm-12 col-lg-4 col-md-4" data-category="transition"><img src="images/devices/smartphone/' + smartphones[i].name + '_landscape.png"/><h4 class="name">' + smartphones[i].name + '</h4><h4 class="number">' + smartphones[i].discountedprice + ' €</h4><h4 class="size" style="display:none">' + smartphones[i].size + '</h4>  <a href="device.html?id=' + smartphones[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
 				$("#items").append(string);
             }
             	activate_filter_panel();
@@ -132,9 +132,23 @@ var $itemContainer = $('.itemContainer').isotope({
 		var $radios = $('input:radio[name=filter]');
         $radios.filter('[value="*"]').prop('checked', true);        
 	});
+        $('#resetButton').trigger('click');
 }
 
-
+/**Codice per risolvere il bug, andrebbe tolto*/
 $(window).load(function(){
-	$('#resetButton').trigger('click');
+    $('#resetButton').trigger('click');
+     setTimeout(function(){
+   		$('#resetButton').trigger('click');
+	}, 500);
 })
+
+$(window).on('resize', function(){
+    $('#resetButton').trigger('click');
+         setTimeout(function(){
+   		$('#resetButton').trigger('click');
+        setTimeout(function(){
+   			$('#resetButton').trigger('click');
+		}, 500);
+	}, 500);
+});

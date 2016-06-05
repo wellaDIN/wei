@@ -59,7 +59,7 @@ function AssistanceServiceFunction(){
 	$.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findAssistanceService.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findAssistanceService.php',
         data: {id: serviceID},
         success: function(response){
 			var service = JSON.parse(response);
@@ -67,7 +67,7 @@ function AssistanceServiceFunction(){
             var service_category = service.category;
             var service_description = service.description;
             if(service.highlight!=0){
-            	service_description = service_description + '<br><br> This is one of our highlights, the most frequently asked assistance services. <a href="device_promotion.html" style="padding: 1px 12px; font-size:9px" class="btn btn-warning" role="button">Go To Highlights</a>';
+            	service_description = service_description + '<br><br> This is one of our highlights, the most frequently asked assistance services. <a href="highlights.html" style="padding: 1px 12px; font-size:9px" class="btn btn-warning" role="button">Go To Highlights</a>';
             }
             $("#description").html(service_description);
             $("#category").attr("href", "assistance_service_cat.html?category=" + nameToUrl(service_category));
@@ -125,10 +125,11 @@ function AssistanceServiceFunction(){
     	method: 'POST',
         crossDomain: true,
         data: {id: serviceID},
-        url: 'php_scripts/findDeviceRelatedToAssService.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findDeviceRelatedToAssService.php',
         success: function(response){
 			if(response==("\"405\"")){
-				window.location.replace("404.html");
+            	alert('There are no related devices. Check the database');
+				//window.location.replace("404.html");
 			}
 			var relDevices = JSON.parse(response);
             for (i in relDevices){

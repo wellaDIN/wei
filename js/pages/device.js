@@ -32,7 +32,7 @@ function deviceFunction(){
 	$.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findDeviceCategory.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findDeviceCategory.php',
         data: {id: deviceID},
         success: function(response){
 			var category = JSON.parse(response)["category"];
@@ -66,7 +66,8 @@ function deviceFunction(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		}
+		},
+        async:false
     });
 }
 
@@ -75,7 +76,7 @@ function render_smartphone_page(){
 	$.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findSmartphone.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findSmartphone.php',
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
@@ -139,7 +140,8 @@ function render_smartphone_page(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		}    
+		},
+        async:false    
     });
     
 }
@@ -150,7 +152,7 @@ function render_tablet_page(){
 	$.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findTablet.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findTablet.php',
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
@@ -236,7 +238,8 @@ function render_tablet_page(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		}    
+		},
+        async:false    
     });
     
 }
@@ -246,7 +249,7 @@ function render_networking_page(){
 	$.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findNetworking.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findNetworking.php',
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
@@ -307,7 +310,8 @@ function render_networking_page(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		}    
+		},
+        async:false    
     });
 }
     
@@ -316,7 +320,7 @@ function render_tv_page(){
 	$.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findTvAndSL.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findTvAndSL.php',
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
@@ -377,6 +381,7 @@ function render_tv_page(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		}    
+		},
+        async:false    
     });
 }

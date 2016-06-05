@@ -4,7 +4,7 @@ function tablets(){
 $.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findAllTablets.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findAllTablets.php',
         success: function(response){
             var tablets = JSON.parse(response);
             for ( i in tablets) {
@@ -16,7 +16,7 @@ $.ajax({
                 if(tablets[i].conn_wifi==1 && tablets[i].conn_gsm==1){
                 	wifiGsm = 'gsm';
                 }
-            	var string = '<div class="thumbnail element-item ' + String(tablets[i].brand).toLowerCase() + ' ' + String(tablets[i].os).toLowerCase() + ' ' + onlyWifi  + ' ' + wifiGsm + ' ' + ' col-sm-4 col-lg-4 col-md-4" data-category="transition"><img src="http://placehold.it/320x150"/><h4 class="name">' + tablets[i].name + '</h4><h4 class="number">' + tablets[i].discountedprice + '€</h4><h4 class="size" style="display:none">' + tablets[i].size + '</h4>  <a href="device.html?id=' + tablets[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
+            	var string = '<div class="thumbnail element-item ' + String(tablets[i].brand).toLowerCase() + ' ' + String(tablets[i].os).toLowerCase() + ' ' + onlyWifi  + ' ' + wifiGsm + ' ' + ' col-sm-12 col-lg-4 col-md-4" data-category="transition"><img src="images/devices/tablet/' + tablets[i].name + '_landscape.png"/><h4 class="name">' + tablets[i].name + '</h4><h4 class="number">' + tablets[i].discountedprice + '€</h4><h4 class="size" style="display:none">' + tablets[i].size + '</h4>  <a href="device.html?id=' + tablets[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
 				$("#items").append(string);
             }
             	activate_filter_panel();

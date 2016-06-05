@@ -4,11 +4,11 @@ function networking(){
 $.ajax({
     	method: 'POST',
         crossDomain: true,
-        url: 'php_scripts/findAllNetworking.php',
+        url: 'http://www.weigroup.altervista.org/php_scripts/findAllNetworking.php',
         success: function(response){
             var products = JSON.parse(response);
             for ( i in products) {
-            	var string = '<div class="thumbnail element-item ' + String(products[i].brand).toLowerCase() + ' ' + String(products[i].connectivity_type).toLowerCase() + ' ' + String(products[i].activity).toLowerCase() + ' col-sm-4 col-lg-4 col-md-4" data-category="transition"><img src="http://placehold.it/320x150"/><h4 class="name">' + products[i].name + '</h4><h4 class="number">' + products[i].discountedprice + '€</h4> <a href="device.html?id=' + products[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
+            	var string = '<div class="thumbnail element-item ' + String(products[i].brand).toLowerCase() + ' ' + String(products[i].connectivity_type).toLowerCase() + ' ' + String(products[i].activity).toLowerCase() + ' col-sm-12 col-lg-4 col-md-4" data-category="transition"><img src="images/devices/networking/' + products[i].name + '_landscape.png"/><h4 class="name">' + products[i].name + '</h4><h4 class="number">' + products[i].discountedprice + '€</h4> <a href="device.html?id=' + products[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
 				$("#items").append(string);
             }
             	activate_filter_panel();
