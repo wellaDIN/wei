@@ -1,4 +1,6 @@
 <?php
+	header("Access-Control-Allow-Origin: http://weigroup.altervista.org");
+
 	$servername = "localhost";
 	$username = "weigroup";
 	$password = "caccacacca";
