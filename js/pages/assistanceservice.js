@@ -86,19 +86,19 @@ function AssistanceServiceFunction(){
                 	tab_body = tabs[0].body;
                     var string = '<div class="container2" style="height: 350px">';
                     for(j in tab_body){
-                    	string = string + '<h3 style="margin-top: 0; color: #428bca">' + tab_body[j].question + '</h3>';
+                    	string = string + '<h3 style="margin-top: 0; margin-right:16px; color: #428bca">' + tab_body[j].question + '</h3>';
                         string = string + '<h5 style="text-align:justify;margin-right:16px">' + tab_body[j].answer + '</h4>';
                     }
-                    string = string + '</div>';
+                    string = string + '<br><br></div>';
                     $("#active-tab-content").html(string);
                 } else {
 					tab_body = tabs[i].body;
                     var string = '<div class="bhoechie-tab-content container1"><div class="container2" style="height: 350px">';
                 	for (j in tab_body) {
-                    	string = string + '<h3 style="margin-top: 0; color: #428bca">' + tab_body[j].question + '</h3>';
+                    	string = string + '<h3 style="margin-top: 0; margin-right:16px; color: #428bca">' + tab_body[j].question + '</h3>';
                         string = string + '<h5 style="text-align:justify;margin-right:16px">' + tab_body[j].answer + '</h5>';
                  	}
-                    string = string + '</div></div>';
+                    string = string + '<br><br></div></div>';
                     $("#tab-contents-div").append(string);
             	}   
             }
