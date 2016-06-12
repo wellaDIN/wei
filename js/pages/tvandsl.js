@@ -1,5 +1,7 @@
 $(document).ready(tvandsl);
 
+var $itemContainer;
+
 function tvandsl(){
 $.ajax({
     	method: 'POST',
@@ -8,7 +10,7 @@ $.ajax({
         success: function(response){
             var products = JSON.parse(response);
             for ( i in products) {
-            	var string = '<div class="thumbnail element-item ' + String(products[i].brand).toLowerCase() + ' ' + String(products[i].type).toLowerCase() + ' ' + String(products[i].connection).toLowerCase() + ' col-sm-12 col-lg-4 col-md-4" data-category="transition"><img src="images/devices/tv/' + products[i].name + '_landscape.png"/><h4 class="name">' + products[i].name + '</h4><h4 class="number">' + products[i].discountedprice + '€</h4> <a href="device.html?id=' + products[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
+            	var string = '<div class="thumbnail element-item ' + String(products[i].brand).toLowerCase() + ' ' + String(products[i].type).toLowerCase() + ' ' + String(products[i].connection).toLowerCase() + ' col-sm-12 col-lg-4 col-md-4" data-category="transition" style="padding-top:10px;padding-bottom:10px;text-align:center"><img src="images/devices/tv/' + products[i].name.replace("@", "") + '_landscape.png"/><h4 style="font-size:16px" class="name">' + products[i].name + '</h4><h5 class="number">' + products[i].discountedprice + '€</h5> <a href="device.html?id=' + products[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
 				$("#items").append(string);
             }
             	activate_filter_panel();
@@ -25,7 +27,7 @@ function activate_filter_panel(){
 	
     var filters = {};
 	// init Isotope
-	var $itemContainer = $('.itemContainer').isotope({
+	$itemContainer = $('.itemContainer').isotope({
 		itemSelector: '.element-item',
 		layoutMode: 'fitRows',
 		filter : function() {
@@ -112,6 +114,20 @@ function activate_filter_panel(){
 }
 
 
+/**Codice per risolvere il bug, andrebbe tolto*/
 $(window).load(function(){
-	$('#resetButton').trigger('click');
+    $('#resetButton').trigger('click');
+     setTimeout(function(){
+		$itemContainer.isotope({});
+	}, 500);
 })
+
+$(window).on('resize', function(){
+	$itemContainer.isotope({});
+    setTimeout(function(){
+		$itemContainer.isotope({});
+        setTimeout(function(){
+			$itemContainer.isotope({});
+		}, 500);
+	}, 500);
+});

@@ -53,6 +53,7 @@ ul.thumbnails {
 }
 
 .caption p {  
+	font-size:16px; /* Questo non era specificato */
     color: #999;
 }
 

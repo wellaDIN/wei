@@ -1,5 +1,7 @@
 $(document).ready(smartphones);
 
+var $itemContainer;
+
 function smartphones(){
 $.ajax({
     	method: 'POST',
@@ -9,7 +11,7 @@ $.ajax({
             var smartphones = JSON.parse(response);
             for ( i in smartphones) {
                         //TODO GESTIRE windows phone come class
-            	var string = '<div class="thumbnail element-item ' + smartphones[i].brand.toLowerCase() + ' ' + smartphones[i].os.toLowerCase() + ' col-sm-12 col-lg-4 col-md-4" data-category="transition"><img src="images/devices/smartphone/' + smartphones[i].name + '_landscape.png"/><h4 class="name">' + smartphones[i].name + '</h4><h4 class="number">' + smartphones[i].discountedprice + ' €</h4><h4 class="size" style="display:none">' + smartphones[i].size + '</h4>  <a href="device.html?id=' + smartphones[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
+            	var string = '<div class="thumbnail element-item ' + smartphones[i].brand.toLowerCase() + ' ' + smartphones[i].os.toLowerCase() + ' col-sm-12 col-lg-4 col-md-4" data-category="transition" style="padding-top:10px;padding-bottom:10px;text-align:center"><img src="images/devices/smartphone/' + smartphones[i].name + '_landscape.png"/><h4 style="font-size:16px" class="name">' + smartphones[i].name + '</h4><h5 class="number">' + smartphones[i].discountedprice + ' €</h5><h4 class="size" style="display:none">' + smartphones[i].size + '</h4>  <a href="device.html?id=' + smartphones[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
 				$("#items").append(string);
             }
             	activate_filter_panel();
@@ -22,11 +24,11 @@ $.ajax({
    	$('#resetButton').trigger('click');
 }
 
+
 function activate_filter_panel(){
-	
     var filters = {};
 	// init Isotope
-var $itemContainer = $('.itemContainer').isotope({
+	$itemContainer = $('.itemContainer').isotope({
 		itemSelector: '.element-item',
 		layoutMode: 'fitRows',
 		filter : function() {
@@ -132,23 +134,22 @@ var $itemContainer = $('.itemContainer').isotope({
 		var $radios = $('input:radio[name=filter]');
         $radios.filter('[value="*"]').prop('checked', true);        
 	});
-        $('#resetButton').trigger('click');
 }
 
 /**Codice per risolvere il bug, andrebbe tolto*/
 $(window).load(function(){
     $('#resetButton').trigger('click');
      setTimeout(function(){
-   		$('#resetButton').trigger('click');
+		$itemContainer.isotope({});
 	}, 500);
 })
 
 $(window).on('resize', function(){
-    $('#resetButton').trigger('click');
-         setTimeout(function(){
-   		$('#resetButton').trigger('click');
+	$itemContainer.isotope({});
+    setTimeout(function(){
+		$itemContainer.isotope({});
         setTimeout(function(){
-   			$('#resetButton').trigger('click');
+			$itemContainer.isotope({});
 		}, 500);
 	}, 500);
 });

@@ -86,8 +86,8 @@ function AssistanceServiceFunction(){
                 	tab_body = tabs[0].body;
                     var string = '<div class="container2" style="height: 350px">';
                     for(j in tab_body){
-                    	string = string + '<h2 style="margin-top: 0; color: #428bca">' + tab_body[j].question + '</h2>';
-                        string = string + '<h6 style="text-align:"justify">' + tab_body[j].answer + '</h6>';
+                    	string = string + '<h3 style="margin-top: 0; color: #428bca">' + tab_body[j].question + '</h3>';
+                        string = string + '<h5 style="text-align:justify;margin-right:16px">' + tab_body[j].answer + '</h4>';
                     }
                     string = string + '</div>';
                     $("#active-tab-content").html(string);
@@ -95,8 +95,8 @@ function AssistanceServiceFunction(){
 					tab_body = tabs[i].body;
                     var string = '<div class="bhoechie-tab-content container1"><div class="container2" style="height: 350px">';
                 	for (j in tab_body) {
-                    	string = string + '<h2 style="margin-top: 0; color: #428bca">' + tab_body[j].question + '</h2>';
-                        string = string + '<h6 style="text-align:"justify">' + tab_body[j].answer + '</h6>';
+                    	string = string + '<h3 style="margin-top: 0; color: #428bca">' + tab_body[j].question + '</h3>';
+                        string = string + '<h5 style="text-align:justify;margin-right:16px">' + tab_body[j].answer + '</h5>';
                  	}
                     string = string + '</div></div>';
                     $("#tab-contents-div").append(string);
@@ -133,7 +133,7 @@ function AssistanceServiceFunction(){
 			}
 			var relDevices = JSON.parse(response);
             for (i in relDevices){
-            	$("#relatedDevice").append('<div class="product"><div class="product-image"><img src="images/devices/' + relDevices[i].category.toLowerCase() + '/' + relDevices[i].name + '_1.png"></div><div class="product-info" style="text-align: center"><h5 style="margin-top: 4px">' + relDevices[i].name + '</h5><p class="product-categories"><a href="device.html?id=' + relDevices[i].id + '" class="btn btn-primary" style="background-color: #34495e; border-color: #34495e; color: white; padding: 3px 6px" role="button">See more</a></p></div></div>');
+            	$("#relatedDevice").append('<div class="product"><div class="product-image"><img src="images/devices/' + relDevices[i].category.toLowerCase() + '/' + relDevices[i].name.replace("@", "") + '_1.png"></div><div class="product-info" style="text-align: center"><h5 style="margin-top: 4px">' + relDevices[i].name + '</h5><p class="product-categories"><a href="device.html?id=' + relDevices[i].id + '" class="btn btn-primary" style="background-color: #34495e; border-color: #34495e; color: white; padding: 3px 6px" role="button">See more</a></p></div></div>');
             }
 		},
         error: function(request, error){

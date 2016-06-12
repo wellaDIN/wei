@@ -8,6 +8,7 @@
     
     // Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
+    mysqli_set_charset($conn,"utf8");
 	// Check connection
 	if ($conn->connect_error) {
     	die("Connection failed: " . $conn->connect_error);
@@ -17,7 +18,7 @@
 	$result = $conn->query($sql);
     $resultsNumber = $result->num_rows;
     $devicePromo = array();
-    
+
 	if ($resultsNumber >= 0){
         while($row = $result ->fetch_array(MYSQL_ASSOC)){
         	$row["category"]="Smartphone";

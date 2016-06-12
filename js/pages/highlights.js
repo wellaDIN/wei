@@ -11,7 +11,7 @@ $.ajax({
 			}
             var highlights = JSON.parse(response);
             for (i in highlights){
-                $("#highlightsContent").append('<div class="col-sm-4 portfolio-item"><a href="assistanceservice.html?id=' + highlights[i].id + '" class="portfolio-link"><div class="caption"><div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div><img src="images/assistanceservices/' + highlights[i].category.replace(/\s+/g, '').toLowerCase()  + '/' + highlights[i].name.replace(',', '').replace(':', '') + '.png" class="img-responsive" alt="">' + highlights[i].name + '</a></div>');
+                $("#highlightsContent").append('<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 portfolio-item" style="margin: 0 0 10px;"><a href="assistanceservice.html?id=' + highlights[i].id + '" class="portfolio-link"><div class="caption"><div class="caption-content"><i class="fa fa-search-plus fa-3x"></i></div></div><img src="images/assistanceservices/' + highlights[i].category.replace(/\s+/g, '').toLowerCase()  + '/' + highlights[i].name.replace(',', '').replace(':', '') + '.png" class="img-responsive" alt=""><div  style="display: flex;justify-content: center;align-items: center;text-align:center;min-height:100px;"><h4>' + highlights[i].name + '<h4></div></a></div>');
             }
 
 		},

@@ -1,5 +1,7 @@
 $(document).ready(tablets);
 
+var $itemContainer;
+
 function tablets(){
 $.ajax({
     	method: 'POST',
@@ -16,7 +18,7 @@ $.ajax({
                 if(tablets[i].conn_wifi==1 && tablets[i].conn_gsm==1){
                 	wifiGsm = 'gsm';
                 }
-            	var string = '<div class="thumbnail element-item ' + String(tablets[i].brand).toLowerCase() + ' ' + String(tablets[i].os).toLowerCase() + ' ' + onlyWifi  + ' ' + wifiGsm + ' ' + ' col-sm-12 col-lg-4 col-md-4" data-category="transition"><img src="images/devices/tablet/' + tablets[i].name + '_landscape.png"/><h4 class="name">' + tablets[i].name + '</h4><h4 class="number">' + tablets[i].discountedprice + '€</h4><h4 class="size" style="display:none">' + tablets[i].size + '</h4>  <a href="device.html?id=' + tablets[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
+            	var string = '<div class="thumbnail element-item ' + String(tablets[i].brand).toLowerCase() + ' ' + String(tablets[i].os).toLowerCase() + ' ' + onlyWifi  + ' ' + wifiGsm + ' ' + ' col-sm-12 col-lg-4 col-md-4" data-category="transition" style="padding-top:10px;padding-bottom:10px;text-align:center"><img src="images/devices/tablet/' + tablets[i].name + '_landscape.png"/><h4 style="font-size:16px" class="name">' + tablets[i].name + '</h4><h5 class="number">' + tablets[i].discountedprice + '€</h5><h4 class="size" style="display:none">' + tablets[i].size + '</h4>  <a href="device.html?id=' + tablets[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
 				$("#items").append(string);
             }
             	activate_filter_panel();
@@ -33,7 +35,7 @@ function activate_filter_panel(){
 	
     var filters = {};
 	// init Isotope
-	var $itemContainer = $('.itemContainer').isotope({
+	$itemContainer = $('.itemContainer').isotope({
 		itemSelector: '.element-item',
 		layoutMode: 'fitRows',
 		filter : function() {
@@ -151,6 +153,21 @@ function activate_filter_panel(){
 }
 
 
+
+/**Codice per risolvere il bug, andrebbe tolto*/
 $(window).load(function(){
-	$('#resetButton').trigger('click');
+    $('#resetButton').trigger('click');
+     setTimeout(function(){
+		$itemContainer.isotope({});
+	}, 500);
 })
+
+$(window).on('resize', function(){
+	$itemContainer.isotope({});
+    setTimeout(function(){
+		$itemContainer.isotope({});
+        setTimeout(function(){
+			$itemContainer.isotope({});
+		}, 500);
+	}, 500);
+});

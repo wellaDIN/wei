@@ -14,8 +14,8 @@
 
 .breadcrumbs{
 	background:#f7f7f7;
-	margin-bottom:20px;
-	margin-top:-10px;
+	margin-bottom:14px; /* Qui prima era 20 px*/ 
+	margin-top:40px; /* Qui prima era -10 px*/
     overflow:hidden;
         height: auto;
 
