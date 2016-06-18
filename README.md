@@ -1,6 +1,8 @@
 # Wei
 
 Wei is a fictious telephone company. This repository will contain the project for Wei interactive website.
+The website contains some information about the company, and then a catalogue of devices (divided in Smartphones, Tablets, Networking and Tv&Smart Living categories), smart life services (divided in Tv&Entertainment, Health Home, Person categories) and assistance services (divided in Lane Management, Cost Monitoring and Payment, Technical Support and Smart Life categories). Another page is present for device in promotion, SL services in promotion and frequently asked assistance services.
+Relation between devices and services are explicated into links between the pages of the device and the service. 
 
 **Key Points**
 
@@ -10,7 +12,7 @@ During the development of the website, we always focused on the following points
 * The structure of the website must be **simple** and easy to remember. Users should be able to build a mental map of the website in a few minutes;
 * The links connecting pages should be as **intuitive** as possible. Users should understand what they are reaching _before_ clicking the link.
 
-** Used resources **
+**Used resources**
 
 The following are the languages we used for the website development:
 
@@ -24,7 +26,7 @@ Other important tools we used are:
 * _Bootstrap_ is the main used UI Framework. Also _Jquery UI_ has been used in minor parts. Templates have been searched using Google;
 * _PhoneGap_ has been used for generating an Android application
 
-** Website Structure **
+**Website Structure**
 
 The website has been structured as follows:
 
