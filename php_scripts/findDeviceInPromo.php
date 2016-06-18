@@ -12,7 +12,9 @@
 	// Check connection
 	if ($conn->connect_error) {
     	die("Connection failed: " . $conn->connect_error);
-	} 
+	} else {
+    	mysqli_set_charset($conn,"utf8");
+    }
     
 	$sql = "SELECT id, name, price, discountedprice FROM smartphone WHERE promotion=1";
 	$result = $conn->query($sql);
@@ -71,6 +73,10 @@
         exit(1);
     }
     
+    if(is_null($devicePromo) || empty($devicePromo)){
+    	echo json_encode("406");
+        exit(1);
+    }
     echo json_encode($devicePromo);
 
 

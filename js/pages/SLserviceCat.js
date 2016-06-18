@@ -40,6 +40,9 @@ $(document).ready(slCategory);
 function slCategory(){
 	var serviceCategory = convertCategory(findParameter("category"));
     $("#" + findParameter("category") + "link").attr('style','pointer-events: none; cursor: default; color: #7a8188;');
+    if(serviceCategory == null){
+			window.location.replace("404.html?id=SLServiceCatNotFound");
+    }
     $("#SLOrientInfo").append(serviceCategory.replace("and","&amp;"));    
     $.ajax({
     	method: 'POST',
@@ -48,7 +51,7 @@ function slCategory(){
         url: 'http://www.weigroup.altervista.org/php_scripts/findSLServicesByCategory.php',
         success: function(response){
         	if(response==("\"405\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=ServicesNotFound");
 			}
         	var services = JSON.parse(response);
 			for(i in services){

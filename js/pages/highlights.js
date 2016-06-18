@@ -6,8 +6,8 @@ $.ajax({
         crossDomain: true,
         url: 'http://www.weigroup.altervista.org/php_scripts/findHighlights.php',
         success: function(response){
-        	if(response==("\"405\"")){
-				window.location.replace("404.html");
+        	if(response==("\"406\"")){
+				window.location.replace("404.html?id=noHighlights");
 			}
             var highlights = JSON.parse(response);
             for (i in highlights){

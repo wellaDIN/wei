@@ -11,8 +11,10 @@
 	// Check connection
 	if ($conn->connect_error) {
     	die("Connection failed: " . $conn->connect_error);
-	} 
-    
+	} else {
+    	mysqli_set_charset($conn,"utf8");
+    }
+
 	$sql = "SELECT id, name, brand, connectivity_type, discountedprice, activity FROM networking";
 	$result = $conn->query($sql);
     $resultsNumber = $result->num_rows;    

@@ -62,6 +62,9 @@ function AssistanceServiceFunction(){
         url: 'http://www.weigroup.altervista.org/php_scripts/findAssistanceService.php',
         data: {id: serviceID},
         success: function(response){
+        	if(response==("\"405\"") || response==("\"406\"")){
+				window.location.replace("404.html?id=serviceNotFound");
+			}
 			var service = JSON.parse(response);
             var service_name = service.name;
             var service_category = service.category;
@@ -118,8 +121,7 @@ function AssistanceServiceFunction(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		},
-        async:false
+		}
     });
     $.ajax({
     	method: 'POST',
@@ -129,7 +131,6 @@ function AssistanceServiceFunction(){
         success: function(response){
 			if(response==("\"405\"")){
             	alert('There are no related devices. Check the database');
-				//window.location.replace("404.html");
 			}
 			var relDevices = JSON.parse(response);
             for (i in relDevices){
