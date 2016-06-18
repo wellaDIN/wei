@@ -2,7 +2,7 @@
 
 Wei is a fictious telephone company. This repository will contain the project for Wei interactive website.
 
-** Key Points **
+**Key Points**
 
 During the development of the website, we always focused on the following points that we consider crucial for a good website:
 
