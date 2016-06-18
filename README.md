@@ -35,4 +35,4 @@ The website has been structured as follows:
 * In the _fonts_ folder there are the fonts used in the website;
 * In the _images_ folder there are all the images used for the website;
 * In the _js_ folder there are the _javascript_ scripts;
-* In the_php_ _ _scripts_ foldere there are the _.php_ scripts.
+* In the _php_ _ _scripts_ foldere there are the _.php_ scripts.
