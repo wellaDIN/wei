@@ -47,7 +47,7 @@ function SLServiceFunction(){
         success: function(response){
 			var service = JSON.parse(response);
 			if(response==("\"405\"") || response==("\"406\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=SLServiceNotFound");
 			}
             $("#category").attr("href", "sl_service_cat.html?category=" + nameToUrl(service.category));
             $('#category').text(service.category);
@@ -72,6 +72,9 @@ function SLServiceFunction(){
         url: 'http://www.weigroup.altervista.org/php_scripts/findDeviceRelatedToSLService.php',
         data: {id: serviceID},
         success: function(response){
+            if(response==("\"405\"") || response==("\"406\"")){
+				return;
+			}
         	var relDevices = JSON.parse(response);
             var stringRelDev = "";
 			for (i in relDevices){

@@ -8,6 +8,9 @@ $.ajax({
         crossDomain: true,
         url: 'http://www.weigroup.altervista.org/php_scripts/findAllNetworking.php',
         success: function(response){
+            if(response==("\"405\"") || response==("\"406\"")){
+				window.location.replace("404.html?id=productsNotFound");
+			}
             var products = JSON.parse(response);
             for ( i in products) {
             	var string = '<div class="thumbnail element-item ' + String(products[i].brand).toLowerCase() + ' ' + String(products[i].connectivity_type).toLowerCase() + ' ' + String(products[i].activity).toLowerCase() + ' col-sm-12 col-lg-4 col-md-4" data-category="transition" style="padding-top:10px;padding-bottom:10px;text-align:center"><img src="images/devices/networking/' + products[i].name + '_landscape.png"/><h4 style="font-size:16px" class="name">' + products[i].name + '</h4><h5 class="number">' + products[i].discountedprice + '€</h5> <a href="device.html?id=' + products[i].id + '" class="btn btn-primary" role="button">See details</a></div>';
@@ -17,8 +20,7 @@ $.ajax({
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		},
-        async:false
+		}
     });
    	$('#resetButton').trigger('click');
 }

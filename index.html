@@ -10,6 +10,8 @@
 		<link href="css/font-awesome.css" rel="stylesheet" media="screen">
 		<link href="css/menu-style.css" rel="stylesheet" media="screen">
 		<link href="css/wei.css" rel="stylesheet" media="screen">
+ 		<link rel="stylesheet" href="css/fontello.css">
+		<link href="css/slider.css" rel="stylesheet" media="screen">
         
 		<!--== Google Fonts ==-->
 		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -45,14 +47,44 @@
 		</header>
 
 		<div class="container content">
-			<div class="row" style="padding-top:18px;margin-left:2px; margin-right:2px">
-					<h1>Lorem Ipsum</h1>
-                    <p align="justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-					<a href="device.html?id=1">iPhone 6s Plus</a><br/>
-                    <a href="slservice.html?id=1">WeiMusic</a>
-            </div>
+                   
+            <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel" style="margin-top:100px;margin-bottom:90px;">
+
+  			<!-- Indicators -->
+  			<ol class="carousel-indicators">
+    			<li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    			<li data-target="#bs-carousel" data-slide-to="1"></li>
+    			<li data-target="#bs-carousel" data-slide-to="2"></li>
+  			</ol>
+  
+  			<!-- Wrapper for slides -->
+  			<div class="carousel-inner">
+    			<div class="item slides active">
+      				<div class="slide" style="background-image: url(images/home/home1.png)">
+					</div>
+    			</div>
+   				<div class="item slides">
+      				<div class="slide"  onclick="location.href='device.html?id=2';" style="cursor: pointer; background-image: url(images/home/home2.png)">
+					</div>
+    			</div>
+   				<div class="item slides">
+      				<div class="slide"  onclick="location.href='slservice.html?id=1';" style="cursor: pointer; background-image: url(images/home/home3.png
+                    )">
+					</div>
+    			</div>	 
+  			</div> 
+            <!-- Controls -->
+    		<a class="left carousel-control" href="#bs-carousel" role="button" data-slide="prev">
+      			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      			<span class="sr-only">Previous</span>
+    		</a>
+    		<a class="right carousel-control" href="#bs-carousel" role="button" data-slide="next">
+      			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      			<span class="sr-only">Next</span>
+    		</a>
 		</div>
-		
+	</div>
+    
 		<footer class="footer">
 			<div class="container">
 				<div class="row">

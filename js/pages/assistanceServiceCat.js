@@ -39,6 +39,9 @@ $(document).ready(slCategory);
 
 function slCategory(){
 	var serviceCategory = convertCategory(findParameter("category"));
+    if(serviceCategory == null){
+			window.location.replace("404.html?id=AssServiceCatNotFound");
+    }
     $("#" + findParameter("category") + "link").attr('style','pointer-events: none; cursor: default; color: #7a8188;');
 	$("#ASOrientInfo").append(serviceCategory);    
     $.ajax({
@@ -48,7 +51,7 @@ function slCategory(){
         url: 'http://www.weigroup.altervista.org/php_scripts/findAssistanceServicesByCategory.php',
         success: function(response){
 			if(response==("\"405\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=AssServicesNotFound");
 			}
 			var services = JSON.parse(response);
             $("#serviceList").append('<hr>');

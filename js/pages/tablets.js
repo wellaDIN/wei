@@ -8,6 +8,9 @@ $.ajax({
         crossDomain: true,
         url: 'http://www.weigroup.altervista.org/php_scripts/findAllTablets.php',
         success: function(response){
+            if(response==("\"405\"") || response==("\"406\"")){
+				window.location.replace("404.html?id=productsNotFound");
+			}
             var tablets = JSON.parse(response);
             for ( i in tablets) {
                 var onlyWifi = '';
@@ -25,8 +28,7 @@ $.ajax({
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		},
-        async:false
+		}
     });
    	$('#resetButton').trigger('click');
 }

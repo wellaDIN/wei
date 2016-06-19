@@ -40,6 +40,9 @@ $(document).ready(slCategory);
 function slCategory(){
 	var serviceCategory = convertCategory(findParameter("category"));
     $("#" + findParameter("category") + "link").attr('style','pointer-events: none; cursor: default; color: #7a8188;');
+    if(serviceCategory == null){
+			window.location.replace("404.html?id=SLServiceCatNotFound");
+    }
     $("#SLOrientInfo").append(serviceCategory.replace("and","&amp;"));    
     $.ajax({
     	method: 'POST',
@@ -48,7 +51,7 @@ function slCategory(){
         url: 'http://www.weigroup.altervista.org/php_scripts/findSLServicesByCategory.php',
         success: function(response){
         	if(response==("\"405\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=ServicesNotFound");
 			}
         	var services = JSON.parse(response);
 			for(i in services){
@@ -56,7 +59,7 @@ function slCategory(){
             	if(i!=0 && i%4==0){
                     $("#carouselInner").append('<div class="item"><ul class="thumbnails" id="slide' + c + '"></ul></div>');    
 				}
-            	var string = '<li class="col-sm-3" style="margin-bottom:80px;"><div class="fff"><div class="thumbnail"><img src="images/slservices/' + serviceCategory.replace(/\s+/g, '').toLowerCase() + '/' + services[i].name + '_logo.png"></div><div class="caption" style="text-align:center"><h4>' + services[i].name+'</h4><p>' + services[i].slogan + '</p><a class="btn btn-info" href="slservice.html?id=' + services[i].id + '" role="button">See details</a></div></div></li>';
+            	var string = '<li class="col-sm-3" style="padding-bottom:20px;"><div class="fff"><div class="thumbnail"><img src="images/slservices/' + serviceCategory.replace(/\s+/g, '').toLowerCase() + '/' + services[i].name + '_logo.png"></div><div class="caption" style="text-align:center"><h4>' + services[i].name+'</h4><p>' + services[i].slogan + '</p><a class="btn btn-info" href="slservice.html?id=' + services[i].id + '" role="button">See details</a></div></div></li>';
             	$("#slide" + c).append(string);
             }
             if(c<2){

@@ -37,7 +37,7 @@ function deviceFunction(){
         success: function(response){
 			var category = JSON.parse(response)["category"];
 			if(response==("\"405\"") || response==("\"406\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=deviceNotFound");
 			}
 			switch(category) {
     			case "Smartphone":
@@ -66,8 +66,7 @@ function deviceFunction(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		},
-        async:false
+		}
     });
 }
 
@@ -80,7 +79,7 @@ function render_smartphone_page(){
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=deviceNotFound");
 			}
         	var device = JSON.parse(response);
             var device_name = device.name;
@@ -140,8 +139,7 @@ function render_smartphone_page(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		},
-        async:false    
+		}
     });
     
 }
@@ -156,7 +154,7 @@ function render_tablet_page(){
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=deviceNotFound");
 			}
         	var device = JSON.parse(response);
             var device_name = device.name;
@@ -238,8 +236,7 @@ function render_tablet_page(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		},
-        async:false    
+		}  
     });
     
 }
@@ -253,7 +250,7 @@ function render_networking_page(){
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=deviceNotFound");
 			}
         	var networking = JSON.parse(response);
             var networking_name = networking.name;
@@ -310,8 +307,7 @@ function render_networking_page(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		},
-        async:false    
+		}
     });
 }
     
@@ -324,7 +320,7 @@ function render_tv_page(){
         data: {id: deviceID},
         success: function(response){
         	if(response==("\"405\"") || response==("\"406\"")){
-				window.location.replace("404.html");
+				window.location.replace("404.html?id=deviceNotFound");
 			}
         	var tv_and_smartliving = JSON.parse(response);
             var tv_and_smartliving_name = tv_and_smartliving.name;
@@ -381,7 +377,6 @@ function render_tv_page(){
 		},
         error: function(request, error){
 			console.log(request + " : " + error);
-		},
-        async:false    
+		}
     });
 }
