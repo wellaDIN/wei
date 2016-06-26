@@ -24,15 +24,17 @@ The following are the languages we used for the website development:
 Other important tools we used are:
 * _Altervista_, an hosting platform for our website;
 * _Bootstrap_ is the main used UI Framework. Also _Jquery UI_ has been used in minor parts. Templates have been searched using Google;
-* _PhoneGap_ has been used for generating an Android application
+* _PhoneGap_ has been used for generating an Android application (you can find the link for downloading the application in the Wiki).
 
 **Website Structure**
 
 The website has been structured as follows:
 
-* In the _main_ folder the _.html_ files stay, together with the configuration _.xml_ file for the application. Furthermore, a database backup is included;
-* In the _css_ folder there are the used styles;
-* In the _fonts_ folder there are the fonts used in the website;
-* In the _images_ folder there are all the images used for the website;
-* In the _js_ folder there are the _javascript_ scripts;
-* In the _php_ _ _scripts_ foldere there are the _.php_ scripts.
+* In the _WEBSITE_ folder the _.html_ files stay, together with the configuration _.xml_ file for the application. Furthermore, a database backup is included;
+* Inside the _WESITE_ folder, in the _css_ folder there are the used styles;
+* Inside the _WESITE_ folder, in the _fonts_ folder there are the fonts used in the website;
+* Inside the _WESITE_ folder, in the _images_ folder there are all the images used for the website;
+* Inside the _WESITE_ folder, in the _js_ folder there are the _javascript_ scripts;
+* Inside the _WESITE_ folder, in the _php_ _ _scripts_ foldere there are the _.php_ scripts.
+* In the _DB_ folder, there is the backup of the database.
+* In the main folder, there is the P-IDM schema of the website.
